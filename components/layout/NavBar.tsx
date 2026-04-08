@@ -61,9 +61,10 @@ export default function NavBar() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between h-17.5">
             {/* LEFT: MENU BUTTON */}
-            <button
+            <div className=" sm:w-27.5">
+              <button
               onClick={openMenu}
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-4 group"
               aria-label="Open menu"
               aria-expanded={isMenuOpen}
             >
@@ -78,6 +79,7 @@ export default function NavBar() {
                 </span>
               </div>
             </button>
+            </div>
 
             {/* CENTER: LOGO */}
             <Link
@@ -96,7 +98,7 @@ export default function NavBar() {
             </Link>
 
             {/* RIGHT: AUTH BUTTONS */}
-            <div className="flex items-center gap-3 justify-end flex-1">
+            <div className="w-27.5 flex items-center gap-3 justify-end flex-1">
               {/* MOBILE */}
               <div className="flex lg:hidden">
                 <Link

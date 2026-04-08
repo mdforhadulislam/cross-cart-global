@@ -305,9 +305,9 @@ export default function Footer() {
               <Image
                 src="/full-logo.png"
                 alt="Cross Cart Global Logo"
-                width={180}
+                width={280}
                 height={45}
-                className="h-12 w-auto object-contain brightness-110 mb-4"
+                className="h-20 md:h-18 lg:h-20 w-auto object-contain brightness-110 mb-4"
               />
               <p className="text-[15px] leading-relaxed text-white/40">
                 Cross Cart Global is your trusted partner for international

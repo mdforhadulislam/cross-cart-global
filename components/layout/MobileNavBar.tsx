@@ -133,14 +133,14 @@ export default function MobileDrawer({
             <Link
               href="/login"
               onClick={onClose}
-              className="flex-1 flex items-center justify-center h-12 rounded-lg border border-white/20 text-white text-sm font-semibold hover:bg-white/5 transition-all"
+              className="flex-1  h-12 justify-center flex items-center rounded-lg bg-[#F5B400] text-[#081f10] text-[13px] font-bold hover:bg-[#F5B400]/90  transition-all"
             >
               Login
             </Link>
             <Link
               href="/register"
               onClick={onClose}
-              className="flex-1 flex items-center justify-center h-12 rounded-lg bg-[#22c55e] text-black text-sm font-bold hover:bg-[#16a34a] transition-all"
+              className="flex-1   h-12 flex items-center justify-center rounded-lg border-2 border-[#F5B400]/60 text-[#F5B400] text-[13px] font-semibold hover:bg-white/5 hover:border-[#F5B400]/90 transition-all"
             >
               Register
             </Link>

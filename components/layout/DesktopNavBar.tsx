@@ -92,7 +92,7 @@ function DesktopOverlay({
       aria-label="Navigation menu"
     >
       <div
-        className="absolute inset-0 bg-[#061a0e]/95 backdrop-blur-md h-auto"
+        className="absolute inset-0 bg-[#0a1a0f] backdrop-blur-md h-auto"
         style={{
           clipPath: isOpen
             ? "circle(150% at 50px 50%)"
