@@ -16,7 +16,7 @@ const keaniaOne = Keania_One({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://crosscartbangladesh.com"),
+  metadataBase: new URL("https://crosscartbd.com"),
 
   title: {
     default:
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
       "Reliable international courier, parcel tracking, and logistics solutions from Bangladesh to worldwide destinations.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "Cross Cart Global - International Courier & Logistics",
@@ -98,13 +98,13 @@ export const metadata: Metadata = {
     title: "Cross Cart Global | International Courier & Logistics Services",
     description:
       "Fast, secure, and reliable courier and logistics solutions from Bangladesh to worldwide destinations.",
-    images: ["/og-image.jpg"],
+    images: ["/logo.png"],
     creator: "@crosscartbd",
   },
 
   icons: {
     icon: [
-      { url: "/logo.ico" },
+      { url: "/favicon.ico" },
       { url: "/logo.png", sizes: "16x16", type: "image/png" },
       { url: "/logo.png", sizes: "32x32", type: "image/png" },
     ],
