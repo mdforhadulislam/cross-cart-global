@@ -63,8 +63,7 @@ const SLIDES = [
     src: "/cover-9.png",
     alt: "Cross Cart Global International Shipping",
   },
-];
-
+]; 
 /* ══════════════════════════════════
    DATA: Functional Modules (The 6 Boxes)
    ══════════════════════════════════ */
@@ -112,7 +111,6 @@ const MODULES = [
    ══════════════════════════════════ */
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
-
   // Auto Slider Logic
   useEffect(() => {
     const interval = setInterval(() => {
