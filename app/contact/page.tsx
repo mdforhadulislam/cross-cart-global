@@ -46,7 +46,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a1a0f] pt-32 pb-20">
+    <div className="min-h-screen bg-[#0a1a0f] pt-10 pb-10">
       <div className="max-w-7xl mx-auto px-5">
         {/* --- HERO HEADER --- */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
@@ -60,7 +60,7 @@ export default function ContactPage() {
         </div>
 
         {/* --- MAIN CONTENT GRID --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
           {/* LEFT COLUMN: Contact Info (4 Cols) */}
           <div className="lg:col-span-4 space-y-6">
             {/* Info Card */}
@@ -284,48 +284,52 @@ export default function ContactPage() {
         </div>
 
         {/* --- MAP SECTION (Visual Placeholder) --- */}
-        <div className="w-full rounded-2xl overflow-hidden border border-white/10 h-100 relative group">
-          {/* Abstract Map Background */}
-          <div className="absolute inset-0 bg-[#081f10]">
-            {/* Grid Pattern */}
-            <div
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage:
-                  "radial-gradient(#ffffff 1px, transparent 1px)",
-                backgroundSize: "30px 30px",
-              }}
-            />
-            {/* Abstract Roads */}
-            <div className="absolute top-1/2 left-0 w-full h-2 bg-white/5 rotate-12"></div>
-            <div className="absolute top-0 left-1/3 w-2 h-full bg-white/5 -rotate-6"></div>
-            <div className="absolute top-1/3 right-0 w-2/3 h-2 bg-white/5"></div>
-          </div>
-
-          {/* Map Content Overlay */}
-          {/* <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 group-hover:bg-black/30 transition-colors">
-            <div className="bg-[#0a1a0f]/90 backdrop-blur-md border border-[#F5B400]/30 p-6 rounded-2xl shadow-2xl text-center max-w-md mx-4 transform group-hover:scale-105 transition-transform duration-300">
-              <div className="flex justify-center mb-3">
-                <div className="h-12 w-12 rounded-full bg-[#F5B400] flex items-center justify-center animate-bounce shadow-[0_0_20px_rgba(245,180,0,0.5)]">
-                  <MapPin className="h-6 w-6 text-[#081f10]" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">Cross Cart Global HQ</h3>
-              <p className="text-white/60 text-sm mb-4">
-                Mohakhali DOHS, Dhaka, Bangladesh
-              </p>
-              <a
-                href="https://maps.google.com/?q=Mohakhali+DOHS+Dhaka"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#F5B400] font-bold text-sm hover:underline"
-              >
-                <Globe className="h-4 w-4" /> Open in Google Maps
-              </a>
-            </div>
-          </div> */}
-        </div>
+        
       </div>
     </div>
   );
 }
+
+
+
+// <div className="w-full rounded-2xl overflow-hidden border border-white/10 h-100 relative group">
+//           {/* Abstract Map Background */}
+//           <div className="absolute inset-0 bg-[#081f10]">
+//             {/* Grid Pattern */}
+//             <div
+//               className="absolute inset-0 opacity-20"
+//               style={{
+//                 backgroundImage:
+//                   "radial-gradient(#ffffff 1px, transparent 1px)",
+//                 backgroundSize: "30px 30px",
+//               }}
+//             />
+//             {/* Abstract Roads */}
+//             <div className="absolute top-1/2 left-0 w-full h-2 bg-white/5 rotate-12"></div>
+//             <div className="absolute top-0 left-1/3 w-2 h-full bg-white/5 -rotate-6"></div>
+//             <div className="absolute top-1/3 right-0 w-2/3 h-2 bg-white/5"></div>
+//           </div>
+
+//           {/* Map Content Overlay */}
+//           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 group-hover:bg-black/30 transition-colors">
+//             <div className="bg-[#0a1a0f]/90 backdrop-blur-md border border-[#F5B400]/30 p-6 rounded-2xl shadow-2xl text-center max-w-md mx-4 transform group-hover:scale-105 transition-transform duration-300">
+//               <div className="flex justify-center mb-3">
+//                 <div className="h-12 w-12 rounded-full bg-[#F5B400] flex items-center justify-center animate-bounce shadow-[0_0_20px_rgba(245,180,0,0.5)]">
+//                   <MapPin className="h-6 w-6 text-[#081f10]" />
+//                 </div>
+//               </div>
+//               <h3 className="text-xl font-bold text-white mb-2">Cross Cart Global HQ</h3>
+//               <p className="text-white/60 text-sm mb-4">
+//                 Mohakhali DOHS, Dhaka, Bangladesh
+//               </p>
+//               <a
+//                 href="https://maps.google.com/?q=Mohakhali+DOHS+Dhaka"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className="inline-flex items-center gap-2 text-[#F5B400] font-bold text-sm hover:underline"
+//               >
+//                 <Globe className="h-4 w-4" /> Open in Google Maps
+//               </a>
+//             </div>
+//           </div>
+//         </div>
