@@ -1,9 +1,10 @@
+import FooterBar from "@/components/layout/FooterBar";
+import NavBar from "@/components/layout/NavBar";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import type { Metadata } from "next";
 import { Keania_One } from "next/font/google";
-import Script from "next/script"
+import Script from "next/script";
 import "./globals.css";
-import NavBar from "@/components/layout/NavBar";
 
 /* ======================================================
    FONT SETUP
@@ -14,56 +15,53 @@ const keaniaOne = Keania_One({
   weight: "400",
 });
 
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://crosscartbangladesh.com"),
 
   title: {
-    default: "Cross Cart Bangladesh | International Courier & Logistics Services",
-    template: "%s | Cross Cart Bangladesh",
+    default:
+      "Cross Cart Global | International Courier & Logistics Services",
+    template: "%s | Cross Cart Global",
   },
 
   description:
-    "Cross Cart Bangladesh provides international courier, air freight, sea freight, eCommerce logistics, parcel tracking, and cross-border delivery services from Bangladesh to India, China, USA, UK, Canada, Europe, Australia, Malaysia, and worldwide.",
+    "Cross Cart Global provides international courier, air freight, sea freight, eCommerce logistics, parcel tracking, and cross-border delivery services from Bangladesh to India, China, USA, UK, Canada, Europe, Australia, Malaysia, and worldwide.",
 
-  applicationName: "Cross Cart Bangladesh",
+  applicationName: "Cross Cart Global",
   referrer: "origin-when-cross-origin",
 
   keywords: [
-    "Cross Cart Bangladesh",
-    "courier service Bangladesh",
+    "Cross Cart Global",
+    "courier service Global",
     "international courier Bangladesh",
     "Bangladesh to India courier",
     "China to Bangladesh shipping",
-    "air freight Bangladesh",
-    "sea freight Bangladesh",
-    "parcel tracking Bangladesh",
+    "air freight",
+    "sea freight",
+    "parcel tracking",
     "worldwide courier service",
-    "ecommerce logistics Bangladesh",
+    "ecommerce logistics ",
     "international parcel delivery",
-    "freight forwarding Bangladesh",
-    "cross border delivery Bangladesh",
-    "Bangladesh logistics company",
+    "freight forwarding ",
+    "cross border delivery ",
+    "Global logistics company",
   ],
-
   authors: [
     {
-      name: "Cross Cart Bangladesh",
-      url: "https://crosscartbangladesh.com",
+      name: "Cross Cart Global",
+      url: "https://crosscartbd.com",
     },
   ],
-
-  creator: "Cross Cart Bangladesh",
-  publisher: "Cross Cart Bangladesh",
+  creator: "Cross Cart Global",
+  publisher: "Cross Cart Global",
   category: "Logistics",
 
   alternates: {
-    canonical: "https://crosscartbangladesh.com",
+    canonical: "https://crosscartbd.com",
     languages: {
-      "en-US": "https://crosscartbangladesh.com",
+      "en-US": "https://crosscartbd.com",
     },
   },
-
   robots: {
     index: true,
     follow: true,
@@ -77,13 +75,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://crosscartbangladesh.com",
-    siteName: "Cross Cart Bangladesh",
-    title: "Cross Cart Bangladesh | International Courier & Logistics Services",
+    url: "https://crosscartbd.com",
+    siteName: "Cross Cart Global",
+    title: "Cross Cart Global | International Courier & Logistics Services",
     description:
       "Reliable international courier, parcel tracking, and logistics solutions from Bangladesh to worldwide destinations.",
     images: [
@@ -91,14 +88,14 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Cross Cart Bangladesh - International Courier & Logistics",
+        alt: "Cross Cart Global - International Courier & Logistics",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Cross Cart Bangladesh | International Courier & Logistics Services",
+    title: "Cross Cart Global | International Courier & Logistics Services",
     description:
       "Fast, secure, and reliable courier and logistics solutions from Bangladesh to worldwide destinations.",
     images: ["/og-image.jpg"],
@@ -107,71 +104,74 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo.ico" },
+      { url: "/logo.png", sizes: "16x16", type: "image/png" },
+      { url: "/logo.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    shortcut: ["/favicon.ico"],
+    apple: [
+      { url: "/full-logo.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: ["/logo.png"],
   },
-
   manifest: "/site.webmanifest",
-
   verification: {
     google: "YOUR_GOOGLE_SITE_VERIFICATION_CODE",
   },
-
   other: {
     "theme-color": "#0B2A4A",
     "color-scheme": "light",
   },
-}
+};
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Cross Cart Bangladesh",
-  url: "https://crosscartbangladesh.com",
-  logo: "https://crosscartbangladesh.com/logo.png",
+  name: "Cross Cart Global",
+  url: "https://crosscartbd.com",
+  logo: "https://crosscartbd.com/logo.png",
   sameAs: [
-    "https://www.facebook.com/crosscartbangladesh",
-    "https://www.instagram.com/crosscartbangladesh",
+    "https://www.facebook.com/cross.cart.global.bd",
+    "https://www.instagram.com/crosscart.global",
   ],
   contactPoint: [
     {
       "@type": "ContactPoint",
-      telephone: "+8801XXXXXXXXX",
+      telephone: "+8801410-144466",
       contactType: "customer service",
       areaServed: "BD",
       availableLanguage: ["English", "Bengali"],
     },
   ],
-}
+};
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Cross Cart Bangladesh",
-  url: "https://crosscartbangladesh.com",
+  name: "Cross Cart Global",
+  url: "https://crosscartbd.com",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://crosscartbangladesh.com/track?query={search_term_string}",
+    target: "https://crosscartbd.com/track?query={search_term_string}",
     "query-input": "required name=search_term_string",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={` ${keaniaOne.variable} ${keaniaOne.variable} antialiased`}>
+      <body
+        className={` ${keaniaOne.variable} ${keaniaOne.variable} antialiased`}
+      >
         <Script
           id="organization-schema"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
         />
         <Script
           id="website-schema"
@@ -182,11 +182,13 @@ export default function RootLayout({
         <TooltipProvider>
           <main className="min-h-screen">
             <NavBar />
-            {children}</main>
-         
+            <div className="h-16.25"></div>
+            {children}
+            <FooterBar />
+          </main>
         </TooltipProvider>
       </body>
     </html>
-  )
+  );
 }
 

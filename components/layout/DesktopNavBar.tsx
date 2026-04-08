@@ -55,21 +55,6 @@ function useEscapeKey(callback: () => void) {
 }
 
 /* ══════════════════════════════════
-   HOOK: Body Scroll Lock
-   ══════════════════════════════════ */
-function useScrollLock(isLocked: boolean) {
-  useEffect(() => {
-    if (isLocked) {
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = originalOverflow;
-      };
-    }
-  }, [isLocked]);
-}
-
-/* ══════════════════════════════════
    DESKTOP FULL-SCREEN OVERLAY
    ══════════════════════════════════ */
 function DesktopOverlay({
@@ -82,7 +67,19 @@ function DesktopOverlay({
   pathname: string;
 }) {
   useEscapeKey(onClose);
-  useScrollLock(isOpen);
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = originalOverflow || "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = originalOverflow || "auto";
+    };
+  }, [isOpen]);
 
   return (
     <div

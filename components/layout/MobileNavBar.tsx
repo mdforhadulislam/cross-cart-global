@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 /* ══════════════════════════════════
    DATA
-   ══════════════════════════════════ */
+══════════════════════════════════ */
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/price", label: "Get Quote" },
@@ -19,7 +19,7 @@ const NAV_LINKS = [
 
 /* ══════════════════════════════════
    HOOK: Escape Key
-   ══════════════════════════════════ */
+══════════════════════════════════ */
 function useEscapeKey(callback: () => void) {
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -31,24 +31,9 @@ function useEscapeKey(callback: () => void) {
 }
 
 /* ══════════════════════════════════
-   HOOK: Body Scroll Lock
-   ══════════════════════════════════ */
-function useScrollLock(isLocked: boolean) {
-  useEffect(() => {
-    if (isLocked) {
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = originalOverflow;
-      };
-    }
-  }, [isLocked]);
-}
-
-/* ══════════════════════════════════
    MOBILE DRAWER
-   ══════════════════════════════════ */
-function MobileDrawer({
+══════════════════════════════════ */
+export default function MobileDrawer({
   isOpen,
   onClose,
   pathname,
@@ -58,13 +43,14 @@ function MobileDrawer({
   pathname: string;
 }) {
   useEscapeKey(onClose);
-  useScrollLock(isOpen);
 
   return (
     <div
       className={cn(
         "fixed inset-0 z-60 lg:hidden transition-all duration-500",
-        isOpen ? "visible" : "invisible",
+        isOpen
+          ? "visible opacity-100"
+          : "invisible opacity-0 pointer-events-none",
       )}
       role="dialog"
       aria-modal="true"
@@ -74,10 +60,9 @@ function MobileDrawer({
       <div
         className={cn(
           "absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-500",
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none",
+          isOpen ? "opacity-100" : "opacity-0",
         )}
         onClick={onClose}
-        aria-hidden="true"
       />
 
       {/* Drawer Panel */}
@@ -105,21 +90,23 @@ function MobileDrawer({
           </button>
         </div>
 
-        {/* Links */}
-        <div className="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-1">
+        {/* NAV LINKS (SCROLLABLE AREA) */}
+        <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-1">
           {NAV_LINKS.map((item, index) => (
             <div
               key={item.href}
               style={{
-                transitionDelay: isOpen ? `${index * 50 + 100}ms` : "0ms",
-                transition: "all 0.4s ease",
+                transitionDelay: isOpen ? `${index * 60 + 120}ms` : "0ms",
                 opacity: isOpen ? 1 : 0,
                 transform: isOpen ? "translateX(0)" : "translateX(-20px)",
+                transition: "all 0.4s ease",
               }}
             >
               <Link
                 href={item.href}
-                onClick={() => !item.hasSub && onClose()}
+                onClick={() => {
+                  if (!item.hasSub) onClose();
+                }}
                 className={cn(
                   "flex items-center justify-between py-3.5 border-b border-white/5 text-[18px] font-medium transition-all",
                   pathname === item.href
@@ -134,10 +121,13 @@ function MobileDrawer({
           ))}
         </div>
 
-        {/* Footer */}
+        {/* FOOTER */}
         <div
           className="shrink-0 p-6 border-t border-white/6 space-y-4"
-          style={{ opacity: isOpen ? 1 : 0, transition: "all 0.4s ease 0.3s" }}
+          style={{
+            opacity: isOpen ? 1 : 0,
+            transition: "all 0.4s ease 0.3s",
+          }}
         >
           <div className="flex gap-2">
             <Link
@@ -155,8 +145,9 @@ function MobileDrawer({
               Register
             </Link>
           </div>
+
           <a
-            href="tel:+8801234567890"
+            href="tel:+8801410144466"
             className="flex items-center justify-center gap-2 text-sm text-white/30"
           >
             <Phone className="h-3.5 w-3.5" />
@@ -167,5 +158,3 @@ function MobileDrawer({
     </div>
   );
 }
-
-export default MobileDrawer;
