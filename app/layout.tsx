@@ -180,6 +180,26 @@ export default function RootLayout({
             `,
           }}
         />
+
+{/* Google Analytics Script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MBRH1VJHZP"
+          strategy="afterInteractive"
+        />
+
+        {/* Google Analytics Init */}
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MBRH1VJHZP');
+          `}
+        </Script>
+      
       </head> 
 
       <body
