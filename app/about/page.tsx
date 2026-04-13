@@ -1,5 +1,5 @@
 import React from 'react'
-import { Globe, Package, Plane, Shield, Truck, Clock, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Globe, Package, Shield, Clock, CheckCircle2, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 const STATS = [
@@ -87,7 +87,7 @@ export default function AboutPage() {
                 businesses and individuals to connect globally.
               </p>
               <p className="text-white/50">
-                We believe that great logistics shouldn't be complicated. Our team works tirelessly 
+                We believe that great logistics shouldn&apos;t be complicated. Our team works tirelessly 
                 to ensure your packages arrive safely, on time, every time.
               </p>
             </div>

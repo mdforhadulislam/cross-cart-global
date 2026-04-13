@@ -1,5 +1,5 @@
 import React from 'react'
-import { Truck, Clock, Package, Shield, Calendar } from 'lucide-react'
+import { Truck, Clock, Package, Calendar } from 'lucide-react'
 
 export default function ShippingPolicyPage() {
   return (

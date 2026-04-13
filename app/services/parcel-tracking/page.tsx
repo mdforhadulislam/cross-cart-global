@@ -1,5 +1,5 @@
 import React from 'react'
-import { Search, Package, MapPin, Clock, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Search, Package, MapPin, CheckCircle2, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 const STEPS = [

@@ -44,49 +44,46 @@ const FOOTER_SECTIONS: FooterSection[] = [
     icon: ShieldCheck,
     links: [
       { href: "/about", label: "About Cross Cart" },
+      { href: "/about/about-cross-cart", label: "Our Story" },
       { href: "/about/why-cross-cart", label: "Why Cross Cart" },
       { href: "/about/work-process", label: "Work Process" },
-      { href: "/about/coverage", label: "Coverage Area" },
+      { href: "/about/coverage-area", label: "Coverage Area" },
       { href: "/about/our-team", label: "Our Team" },
-      { href: "/about/partners", label: "Our Partners" },
+      { href: "/about/our-partners", label: "Our Partners" },
+      { href: "/about/faq", label: "FAQ" },
     ],
   },
   {
     title: "Services",
     icon: Truck,
     links: [
-      {
-        href: "/services/international-shipping",
-        label: "International Shipping",
-      },
+      { href: "/services/international-shipping", label: "International Shipping" },
       { href: "/services/express-delivery", label: "Express Delivery" },
-      { href: "/track", label: "Parcel Tracking" },
       { href: "/services/warehousing", label: "Warehousing" },
       { href: "/services/custom-clearance", label: "Custom Clearance" },
       { href: "/services/bulk-shipping", label: "Bulk Shipping" },
+      { href: "/services/parcel-tracking", label: "Parcel Tracking" },
+      { href: "/services/service-updates", label: "Service Updates" },
     ],
   },
   {
-    title: "Support",
+    title: "Quick Links",
     icon: MessageCircle,
     links: [
       { href: "/track", label: "Track a Parcel" },
       { href: "/price", label: "Get a Quote" },
-      { href: "/contact", label: "Help & Support" },
-      { href: "/faq", label: "FAQ" },
-      { href: "/service-updates", label: "Service Updates" },
       { href: "/contact", label: "Contact Us" },
+      { href: "/about/help-and-support", label: "Help & Support" },
     ],
   },
   {
     title: "Legal",
     icon: Globe,
     links: [
-      { href: "/privacy-policy", label: "Privacy Policy" },
-      { href: "/terms-conditions", label: "Terms & Conditions" },
-      { href: "/shipping-policy", label: "Shipping Policy" },
-      { href: "/refund-policy", label: "Refund Policy" },
-      { href: "/cookie-policy", label: "Cookie Policy" },
+      { href: "/legal/privacy-policy", label: "Privacy Policy" },
+      { href: "/legal/terms-and-conditions", label: "Terms & Conditions" },
+      { href: "/legal/shipping-policy", label: "Shipping Policy" },
+      { href: "/legal/refund-policy", label: "Refund Policy" },
     ],
   },
 ];
@@ -416,7 +413,7 @@ export default function Footer() {
           {/* View All Coverage Link */}
           <div className="flex justify-center mt-8">
             <Link
-              href="/about/coverage"
+              href="/about/coverage-area"
               className="flex items-center gap-2 text-[14px] font-semibold text-[#F5B400]/80 hover:text-[#F5B400] transition-colors group"
             >
               View Full Coverage Map

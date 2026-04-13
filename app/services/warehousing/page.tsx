@@ -1,5 +1,5 @@
 import React from 'react'
-import { Package, Clock, Shield, Truck, MapPin, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Package, Shield, Truck, MapPin, CheckCircle2, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 const FEATURES = [

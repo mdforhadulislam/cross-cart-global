@@ -1,5 +1,5 @@
 import React from 'react'
-import { Bell, Clock, CheckCircle2, Package } from 'lucide-react'
+import { Bell } from 'lucide-react'
 
 const UPDATES = [
   { date: "Jan 15, 2024", title: "New Route: Bangladesh to Japan", desc: "Now shipping to Japan with 7-10 day delivery" },

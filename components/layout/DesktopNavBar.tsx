@@ -29,10 +29,13 @@ const NAV_LINKS = [
 ];
 
 const ABOUT_SUB = [
+  { href: "/about/about-cross-cart", label: "About Cross Cart", icon: ShieldCheck },
   { href: "/about/why-cross-cart", label: "Why Cross Cart", icon: ShieldCheck },
   { href: "/about/work-process", label: "Work Process", icon: CircleDot },
-  { href: "/about/coverage", label: "Coverage Area", icon: MapPin },
+  { href: "/about/coverage-area", label: "Coverage Area", icon: MapPin },
   { href: "/about/our-team", label: "Our Team", icon: Users },
+  { href: "/about/our-partners", label: "Our Partners", icon: Users },
+  { href: "/about/faq", label: "FAQ", icon: Users },
 ];
 
 const SOCIALS = [
