@@ -81,7 +81,7 @@ export default function FaqPage() {
   const filteredFaqs = FAQS.filter(faq => faq.category === selectedCategory)
 
   return (
-    <div className="min-h-screen bg-[#0a1a0f] pt-12 pb-20 px-5">
+    <div className="min-h-screen bg-white pt-12 pb-20 px-5">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -89,10 +89,10 @@ export default function FaqPage() {
             <HelpCircle className="h-4 w-4 text-[#F5B400]" />
             <span className="text-[#F5B400] text-sm font-medium">Help Center</span>
           </div>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Frequently Asked <span className="text-[#F5B400]">Questions</span>
           </h1>
-          <p className="text-white/50 max-w-2xl mx-auto">
+          <p className="text-gray-900/50 max-w-2xl mx-auto">
             Find answers to common questions about our shipping services, tracking, and more.
           </p>
         </div>
@@ -111,8 +111,8 @@ export default function FaqPage() {
                 }}
                 className={`flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all ${
                   isActive
-                    ? "bg-[#F5B400] text-[#081f10]"
-                    : "bg-white/5 border border-white/10 text-white/70 hover:bg-white/10"
+                    ? "bg-[#F5B400] text-[#0a1a0f]"
+                    : "bg-white/5 border border-gray-200 text-gray-900/70 hover:bg-white/10"
                 }`}
               >
                 <Icon className="h-5 w-5" />
@@ -127,13 +127,13 @@ export default function FaqPage() {
           {filteredFaqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white/5 border border-white/10 rounded-xl overflow-hidden"
+              className="bg-white/5 border border-gray-200 rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => setOpenFaq(openFaq === index ? null : index)}
                 className="w-full flex items-center justify-between p-5 text-left"
               >
-                <span className="text-white font-medium pr-4">{faq.question}</span>
+                <span className="text-gray-900 font-medium pr-4">{faq.question}</span>
                 <ChevronDown
                   className={`h-5 w-5 text-[#F5B400] shrink-0 transition-transform ${
                     openFaq === index ? "rotate-180" : ""
@@ -142,7 +142,7 @@ export default function FaqPage() {
               </button>
               {openFaq === index && (
                 <div className="px-5 pb-5">
-                  <p className="text-white/60 leading-relaxed">{faq.answer}</p>
+                  <p className="text-gray-900/60 leading-relaxed">{faq.answer}</p>
                 </div>
               )}
             </div>
@@ -150,12 +150,12 @@ export default function FaqPage() {
         </div>
 
         {/* Contact CTA */}
-        <div className="mt-16 bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
-          <h3 className="text-xl font-bold text-white mb-2">Still have questions?</h3>
-          <p className="text-white/50 mb-6">Our support team is here to help you 24/7</p>
+        <div className="mt-16 bg-white/5 border border-gray-200 rounded-2xl p-8 text-center">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">Still have questions?</h3>
+          <p className="text-gray-900/50 mb-6">Our support team is here to help you 24/7</p>
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#F5B400] hover:bg-[#F5B400]/90 text-[#081f10] font-bold rounded-xl transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#F5B400] hover:bg-[#F5B400]/90 text-[#0a1a0f] font-bold rounded-xl transition-all"
           >
             Contact Support
           </a>

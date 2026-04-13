@@ -113,7 +113,7 @@ export default function NavBar() {
               <div className="hidden lg:flex items-center gap-3">
                 <Link
                   href="/login"
-                  className="h-11 px-6 flex items-center rounded-lg bg-[#F5B400] text-[#081f10] text-[13px] font-bold hover:bg-[#F5B400]/90 transition"
+                  className="h-11 px-6 flex items-center rounded-lg bg-[#F5B400] text-[#0a1a0f] text-[13px] font-bold hover:bg-[#F5B400]/90 transition"
                 >
                   Login
                 </Link>

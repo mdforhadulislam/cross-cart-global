@@ -120,7 +120,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full h-auto pb-8 overflow-hidden bg-[#0a1a0f]">
+    <section className="relative w-full h-auto pb-8 overflow-hidden bg-white">
       {/* ─── BACKGROUND SLIDER ─── */}
       <div className="absolute inset-0 z-0">
         {SLIDES.map((slide, index) => (
@@ -149,24 +149,24 @@ export default function HeroSection() {
         {/* ─── TRACKING BOX (Ad Tracking Box) ─── */}
         <div className="w-full max-w-2xl animate-fade-in-up">
           <div className="text-center mb-8">
-            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-2 tracking-tight">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#0a1a0f] mb-2 tracking-tight">
               Track Your <span className="text-[#F5B400]">Shipment</span>
             </h1>
-            <p className="text-white/60 text-sm lg:text-base">
+            <p className="text-[#0a1a0f]/60 text-sm lg:text-base">
               Enter your tracking ID to get real-time updates on your parcel.
             </p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-xl p-2 shadow-2xl shadow-black/50 flex flex-col sm:flex-row gap-2 items-center">
+          <div className="bg-white border border-gray-200 rounded-xl p-2 shadow-xl flex flex-col sm:flex-row gap-2 items-center">
             <div className="relative flex-1 w-full">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 h-5 w-5" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#0a1a0f]/40 h-5 w-5" />
               <input
                 type="text"
                 placeholder="Enter Tracking Number (e.g., CC123456789)"
-                className="w-full bg-[#0a1a0f]/50 border border-white/10 text-white placeholder:text-white/40 rounded-lg py-4 pl-12 pr-4 focus:outline-none focus:border-[#F5B400]/50 focus:ring-1 focus:ring-[#F5B400]/50 transition-all"
+                className="w-full bg-white border border-gray-200 text-[#0a1a0f] placeholder:text-[#0a1a0f]/40 rounded-lg py-4 pl-12 pr-4 focus:outline-none focus:border-[#F5B400]/50 focus:ring-1 focus:ring-[#F5B400]/50 transition-all"
               />
             </div>
-            <button className="w-full sm:w-auto h-13.5 px-8 bg-[#F5B400] hover:bg-[#F5B400]/90 text-[#081f10] font-bold tracking-wide uppercase rounded-lg transition-all duration-200 flex items-center justify-center gap-2 group">
+            <button className="w-full sm:w-auto h-13.5 px-8 bg-[#F5B400] hover:bg-[#F5B400]/90 text-[#0a1a0f] font-bold tracking-wide uppercase rounded-lg transition-all duration-200 flex items-center justify-center gap-2 group">
               Track Now
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -182,19 +182,19 @@ export default function HeroSection() {
                 <a
                   key={index}
                   href={module.href}
-                  className="group relative flex items-center gap-4 p-5 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-[#F5B400]/30 hover:-translate-y-1"
+                  className="group relative flex items-center gap-4 p-5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 shadow-sm transition-all duration-300 hover:border-[#F5B400]/30 hover:-translate-y-1"
                 >
                   {/* Icon Box */}
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#F5B400]/10 border border-[#F5B400]/20 group-hover:bg-[#F5B400] group-hover:text-[#081f10] transition-colors duration-300">
-                    <Icon className="h-6 w-6 text-[#F5B400] group-hover:text-[#081f10]" />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#F5B400]/10 border border-[#F5B400]/20 group-hover:bg-[#F5B400] group-hover:text-gray-900 transition-colors duration-300">
+                    <Icon className="h-6 w-6 text-[#F5B400] group-hover:text-gray-900" />
                   </div>
 
                   {/* Text Content */}
                   <div className="flex flex-col">
-                    <h3 className="text-white font-semibold text-base group-hover:text-[#F5B400] transition-colors">
+                    <h3 className="text-gray-900 font-semibold text-base group-hover:text-[#F5B400] transition-colors">
                       {module.title}
                     </h3>
-                    <p className="text-white/50 text-sm mt-0.5 line-clamp-1">
+                    <p className="text-gray-500 text-sm mt-0.5 line-clamp-1">
                       {module.desc}
                     </p>
                   </div>

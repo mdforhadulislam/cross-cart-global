@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="flex flex-col bg-[#0a1a0f]">
+    <main className="flex flex-col bg-white">
       {/* Content Container */}
       <div className="flex flex-1 flex-col items-center justify-center px-5 py-15 text-center relative overflow-hidden">
         {/* Background Decoration */}
@@ -19,15 +19,15 @@ export default function NotFound() {
             <PackageSearch className="relative h-24 w-24 text-[#F5B400]" />
           </div>
 
-          <h1 className="text-8xl font-bold text-white tracking-tighter mb-2">
+          <h1 className="text-8xl font-bold text-gray-900 tracking-tighter mb-2">
             4<span className="text-[#F5B400]">0</span>4
           </h1>
 
-          <h2 className="text-2xl font-semibold text-white/90 mb-3">
+          <h2 className="text-2xl font-semibold text-gray-900/90 mb-3">
             Page Lost in Transit
           </h2>
 
-          <p className="max-w-md text-white/50 text-sm leading-relaxed">
+          <p className="max-w-md text-gray-900/50 text-sm leading-relaxed">
             We couldn{"'"}t find the page you{"'"}re looking for. It might have been
             moved, deleted, or perhaps the tracking number is incorrect.
           </p>
@@ -37,7 +37,7 @@ export default function NotFound() {
         <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 mt-4">
           <Link
             href="/"
-            className="flex items-center gap-2 h-12 px-8 bg-[#F5B400] text-[#081f10] font-bold tracking-wide uppercase rounded-lg hover:bg-[#F5B400]/90 transition-all shadow-lg shadow-[#F5B400]/10 active:scale-[0.98]"
+            className="flex items-center gap-2 h-12 px-8 bg-[#F5B400] text-[#0a1a0f] font-bold tracking-wide uppercase rounded-lg hover:bg-[#F5B400]/90 transition-all shadow-lg shadow-[#F5B400]/10 active:scale-[0.98]"
           >
             <Home className="h-4 w-4" />
             Back to Home

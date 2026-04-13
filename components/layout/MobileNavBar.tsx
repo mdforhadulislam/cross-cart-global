@@ -73,7 +73,7 @@ export default function MobileDrawer({
         )}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 h-16 border-b border-white/6 shrink-0">
+        <div className="flex items-center justify-between px-6 h-16 border-b border-gray-200 shrink-0">
           <Image
             src="/logo.png"
             alt="Cross Cart"
@@ -108,7 +108,7 @@ export default function MobileDrawer({
                   if (!item.hasSub) onClose();
                 }}
                 className={cn(
-                  "flex items-center justify-between py-3.5 border-b border-white/5 text-[18px] font-medium transition-all",
+                  "flex items-center justify-between py-3.5 border-b border-gray-200 text-[18px] font-medium transition-all",
                   pathname === item.href
                     ? "text-white"
                     : "text-white/50 hover:text-white",
@@ -123,7 +123,7 @@ export default function MobileDrawer({
 
         {/* FOOTER */}
         <div
-          className="shrink-0 p-6 border-t border-white/6 space-y-4"
+          className="shrink-0 p-6 border-t border-gray-200 space-y-4"
           style={{
             opacity: isOpen ? 1 : 0,
             transition: "all 0.4s ease 0.3s",
@@ -133,7 +133,7 @@ export default function MobileDrawer({
             <Link
               href="/login"
               onClick={onClose}
-              className="flex-1  h-12 justify-center flex items-center rounded-lg bg-[#F5B400] text-[#081f10] text-[13px] font-bold hover:bg-[#F5B400]/90  transition-all"
+              className="flex-1  h-12 justify-center flex items-center rounded-lg bg-[#F5B400] text-[#0a1a0f] text-[13px] font-bold hover:bg-[#F5B400]/90  transition-all"
             >
               Login
             </Link>

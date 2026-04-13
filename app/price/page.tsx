@@ -306,7 +306,7 @@ export default function GetQuotePage() {
   const selectedCarrier = CARRIERS.find((c) => c.id === formData.carrier);
 
   return (
-    <div className="min-h-screen bg-[#0a1a0f] pt-12 pb-20 px-5">
+    <div className="min-h-screen bg-white pt-12 pb-20 px-5">
       <div className="max-w-6xl mx-auto">
         {/* HEADER */}
         <div className="text-center mb-12">
@@ -316,10 +316,10 @@ export default function GetQuotePage() {
               Instant Quote Calculator
             </span>
           </div>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl lg:text-5xl font-bold text-[#0a1a0f] mb-4">
             Get Your <span className="text-[#F5B400]">Shipping Quote</span>
           </h1>
-          <p className="text-white/50 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             Compare rates from top carriers like DHL, FedEx, UPS & Aramex. Get
             instant, transparent pricing for your international shipments.
           </p>
@@ -329,14 +329,14 @@ export default function GetQuotePage() {
           {/* LEFT: FORM */}
           <div className="lg:col-span-2 space-y-6">
             {/* CARRIER SELECTION */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-3">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+              <h3 className="text-xl font-bold text-[#0a1a0f] mb-2 flex items-center gap-3">
                 <div className="h-10 w-10 rounded-lg bg-[#F5B400]/10 flex items-center justify-center">
                   <Globe className="h-5 w-5 text-[#F5B400]" />
                 </div>
                 Select Carrier
               </h3>
-              <p className="text-white/40 text-sm mb-6">
+              <p className="text-[#0a1a0f]/40 text-sm mb-6">
                 Choose your preferred shipping carrier
               </p>
 
@@ -359,12 +359,12 @@ export default function GetQuotePage() {
                       className={`relative p-5 rounded-xl border transition-all duration-300 ${
                         isSelected
                           ? "border-[#F5B400] bg-[#F5B400]/10 shadow-lg shadow-[#F5B400]/10 scale-[1.02]"
-                          : "border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10"
+                          : "border-gray-200 bg-gray-50 hover:border-gray-300 hover:bg-gray-100"
                       }`}
                     >
                       {/* Badge */}
                       <div
-                        className="absolute top-3 right-3 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider text-white"
+                        className="absolute top-3 right-3 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider text-[#0a1a0f]"
                         style={{ backgroundColor: carrier.bgColor }}
                       >
                         {carrier.badge}
@@ -381,10 +381,10 @@ export default function GetQuotePage() {
                           />
                         </div>
                         <div className="text-left flex-1">
-                          <h4 className="text-white font-bold text-lg">
+                          <h4 className="text-[#0a1a0f] font-bold text-lg">
                             {carrier.name}
                           </h4>
-                          <p className="text-white/50 text-xs mb-2">
+                          <p className="text-[#0a1a0f]/50 text-xs mb-2">
                             {carrier.tagline}
                           </p>
                           <div className="flex items-baseline gap-1">
@@ -394,7 +394,7 @@ export default function GetQuotePage() {
                             >
                               ${carrier.baseRate}
                             </span>
-                            <span className="text-white/40 text-xs">
+                            <span className="text-[#0a1a0f]/40 text-xs">
                               /kg base rate
                             </span>
                           </div>
@@ -402,14 +402,14 @@ export default function GetQuotePage() {
                       </div>
 
                       {/* Features */}
-                      <div className="mt-4 pt-4 border-t border-white/10 grid grid-cols-2 gap-1">
+                      <div className="mt-4 pt-4 border-t border-gray-200 grid grid-cols-2 gap-1">
                         {carrier.features.slice(0, 4).map((feature, idx) => (
                           <div key={idx} className="flex items-center gap-1.5">
                             <Check
                               className="h-3 w-3"
                               style={{ color: carrier.color }}
                             />
-                            <span className="text-white/50 text-[10px]">
+                            <span className="text-[#0a1a0f]/50 text-[10px]">
                               {feature}
                             </span>
                           </div>
@@ -418,8 +418,8 @@ export default function GetQuotePage() {
 
                       {/* Delivery Time */}
                       <div className="mt-3 flex items-center gap-2">
-                        <Clock className="h-3 w-3 text-white/40" />
-                        <span className="text-white/60 text-xs">
+                        <Clock className="h-3 w-3 text-[#0a1a0f]/40" />
+                        <span className="text-[#0a1a0f]/60 text-xs">
                           {carrier.description}
                         </span>
                       </div>
@@ -427,7 +427,7 @@ export default function GetQuotePage() {
                       {/* Selected Indicator */}
                       {isSelected && (
                         <div className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-[#F5B400] flex items-center justify-center shadow-lg">
-                          <Check className="h-4 w-4 text-[#081f10]" />
+                          <Check className="h-4 w-4 text-[#0a1a0f]" />
                         </div>
                       )}
                     </button>
@@ -437,8 +437,8 @@ export default function GetQuotePage() {
             </div>
 
             {/* ROUTE SELECTION */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+              <h3 className="text-xl font-bold text-[#0a1a0f] mb-6 flex items-center gap-3">
                 <div className="h-10 w-10 rounded-lg bg-[#F5B400]/10 flex items-center justify-center">
                   <Truck className="h-5 w-5 text-[#F5B400]" />
                 </div>
@@ -448,7 +448,7 @@ export default function GetQuotePage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Origin */}
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-white/80">
+                  <label className="text-sm font-semibold text-[#0a1a0f]/80">
                     Origin Country
                   </label>
                   <div className="relative">
@@ -456,39 +456,39 @@ export default function GetQuotePage() {
                       name="origin"
                       value={formData.origin}
                       onChange={handleInputChange}
-                      className={`w-full bg-[#081f10] border ${
-                        errors.origin ? "border-red-500" : "border-white/10"
-                      } rounded-lg px-4 py-3 text-white appearance-none cursor-pointer focus:outline-none focus:border-[#F5B400]/50 transition-all`}
+                      className={`w-full bg-gray-50 border ${
+                        errors.origin ? "border-red-500" : "border-gray-200"
+                      } rounded-lg px-4 py-3 text-[#0a1a0f] appearance-none cursor-pointer focus:outline-none focus:border-[#F5B400]/50 transition-all`}
                     >
-                      <option value="" className="bg-[#0a1a0f]">
+                      <option value="" className="bg-white">
                         Select Origin
                       </option>
-                      <option value="Bangladesh" className="bg-[#0a1a0f]">
+                      <option value="Bangladesh" className="bg-white">
                         Bangladesh 🇧🇩
                       </option>
-                      <option value="India" className="bg-[#0a1a0f]">
+                      <option value="India" className="bg-white">
                         India 🇮🇳
                       </option>
-                      <option value="China" className="bg-[#0a1a0f]">
+                      <option value="China" className="bg-white">
                         China 🇨🇳
                       </option>
-                      <option value="USA" className="bg-[#0a1a0f]">
+                      <option value="USA" className="bg-white">
                         USA 🇺🇸
                       </option>
-                      <option value="UK" className="bg-[#0a1a0f]">
+                      <option value="UK" className="bg-white">
                         UK 🇬🇧
                       </option>
-                      <option value="UAE" className="bg-[#0a1a0f]">
+                      <option value="UAE" className="bg-white">
                         UAE 🇦🇪
                       </option>
-                      <option value="Malaysia" className="bg-[#0a1a0f]">
+                      <option value="Malaysia" className="bg-white">
                         Malaysia 🇲🇾
                       </option>
-                      <option value="Australia" className="bg-[#0a1a0f]">
+                      <option value="Australia" className="bg-white">
                         Australia 🇦🇺
                       </option>
                     </select>
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40 pointer-events-none" />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[#0a1a0f]/40 pointer-events-none" />
                   </div>
                   {errors.origin && (
                     <p className="text-red-400 text-xs">{errors.origin}</p>
@@ -497,7 +497,7 @@ export default function GetQuotePage() {
 
                 {/* Destination */}
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-white/80">
+                  <label className="text-sm font-semibold text-[#0a1a0f]/80">
                     Destination Country
                   </label>
                   <div className="relative">
@@ -505,41 +505,41 @@ export default function GetQuotePage() {
                       name="destination"
                       value={formData.destination}
                       onChange={handleInputChange}
-                      className={`w-full bg-[#081f10] border ${
+                      className={`w-full bg-gray-50 border ${
                         errors.destination
                           ? "border-red-500"
-                          : "border-white/10"
-                      } rounded-lg px-4 py-3 text-white appearance-none cursor-pointer focus:outline-none focus:border-[#F5B400]/50 transition-all`}
+                          : "border-gray-200"
+                      } rounded-lg px-4 py-3 text-[#0a1a0f] appearance-none cursor-pointer focus:outline-none focus:border-[#F5B400]/50 transition-all`}
                     >
-                      <option value="" className="bg-[#0a1a0f]">
+                      <option value="" className="bg-white">
                         Select Destination
                       </option>
-                      <option value="Bangladesh" className="bg-[#0a1a0f]">
+                      <option value="Bangladesh" className="bg-white">
                         Bangladesh 🇧🇩
                       </option>
-                      <option value="India" className="bg-[#0a1a0f]">
+                      <option value="India" className="bg-white">
                         India 🇮🇳
                       </option>
-                      <option value="China" className="bg-[#0a1a0f]">
+                      <option value="China" className="bg-white">
                         China 🇨🇳
                       </option>
-                      <option value="USA" className="bg-[#0a1a0f]">
+                      <option value="USA" className="bg-white">
                         USA 🇺🇸
                       </option>
-                      <option value="UK" className="bg-[#0a1a0f]">
+                      <option value="UK" className="bg-white">
                         UK 🇬🇧
                       </option>
-                      <option value="UAE" className="bg-[#0a1a0f]">
+                      <option value="UAE" className="bg-white">
                         UAE 🇦🇪
                       </option>
-                      <option value="Malaysia" className="bg-[#0a1a0f]">
+                      <option value="Malaysia" className="bg-white">
                         Malaysia 🇲🇾
                       </option>
-                      <option value="Australia" className="bg-[#0a1a0f]">
+                      <option value="Australia" className="bg-white">
                         Australia 🇦🇺
                       </option>
                     </select>
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40 pointer-events-none" />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[#0a1a0f]/40 pointer-events-none" />
                   </div>
                   {errors.destination && (
                     <p className="text-red-400 text-xs">{errors.destination}</p>
@@ -549,8 +549,8 @@ export default function GetQuotePage() {
             </div>
 
             {/* PACKAGE DETAILS */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+              <h3 className="text-xl font-bold text-[#0a1a0f] mb-6 flex items-center gap-3">
                 <div className="h-10 w-10 rounded-lg bg-[#F5B400]/10 flex items-center justify-center">
                   <Package className="h-5 w-5 text-[#F5B400]" />
                 </div>
@@ -560,7 +560,7 @@ export default function GetQuotePage() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 {/* Weight */}
                 <div className="col-span-2 md:col-span-1 space-y-2">
-                  <label className="text-sm font-semibold text-white/80">
+                  <label className="text-sm font-semibold text-[#0a1a0f]/80">
                     Weight (kg) <span className="text-red-400">*</span>
                   </label>
                   <div className="relative">
@@ -573,9 +573,9 @@ export default function GetQuotePage() {
                       min="0"
                       max="500"
                       step="0.1"
-                      className={`w-full bg-[#081f10] border ${
-                        errors.weight ? "border-red-500" : "border-white/10"
-                      } rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[#F5B400]/50 transition-all`}
+                      className={`w-full bg-gray-50 border ${
+                        errors.weight ? "border-red-500" : "border-gray-200"
+                      } rounded-lg px-4 py-3 text-[#0a1a0f] placeholder:text-gray-400 focus:outline-none focus:border-[#F5B400]/50 transition-all`}
                     />
                   </div>
                   {errors.weight && (
@@ -585,7 +585,7 @@ export default function GetQuotePage() {
 
                 {/* Length */}
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-white/80">
+                  <label className="text-sm font-semibold text-[#0a1a0f]/80">
                     Length (cm)
                   </label>
                   <input
@@ -595,13 +595,13 @@ export default function GetQuotePage() {
                     onChange={handleInputChange}
                     placeholder="0"
                     min="1"
-                    className="w-full bg-[#081f10] border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[#F5B400]/50 transition-all"
+                    className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-[#0a1a0f] placeholder:text-[#0a1a0f]/30 focus:outline-none focus:border-[#F5B400]/50 transition-all"
                   />
                 </div>
 
                 {/* Width */}
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-white/80">
+                  <label className="text-sm font-semibold text-[#0a1a0f]/80">
                     Width (cm)
                   </label>
                   <input
@@ -611,13 +611,13 @@ export default function GetQuotePage() {
                     onChange={handleInputChange}
                     placeholder="0"
                     min="1"
-                    className="w-full bg-[#081f10] border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[#F5B400]/50 transition-all"
+                    className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-[#0a1a0f] placeholder:text-[#0a1a0f]/30 focus:outline-none focus:border-[#F5B400]/50 transition-all"
                   />
                 </div>
 
                 {/* Height */}
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-white/80">
+                  <label className="text-sm font-semibold text-[#0a1a0f]/80">
                     Height (cm)
                   </label>
                   <input
@@ -627,7 +627,7 @@ export default function GetQuotePage() {
                     onChange={handleInputChange}
                     placeholder="0"
                     min="1"
-                    className="w-full bg-[#081f10] border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[#F5B400]/50 transition-all"
+                    className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-[#0a1a0f] placeholder:text-[#0a1a0f]/30 focus:outline-none focus:border-[#F5B400]/50 transition-all"
                   />
                 </div>
               </div>
@@ -637,7 +637,7 @@ export default function GetQuotePage() {
                 <div className="bg-[#F5B400]/5 border border-[#F5B400]/20 rounded-lg p-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <Calculator className="h-5 w-5 text-[#F5B400]" />
-                    <span className="text-white/80 text-sm">
+                    <span className="text-[#0a1a0f]/80 text-sm">
                       Volumetric Weight:
                     </span>
                   </div>
@@ -656,14 +656,14 @@ export default function GetQuotePage() {
             </div>
 
             {/* ADDITIONAL SERVICES */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-              <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-3">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+              <h3 className="text-xl font-bold text-[#0a1a0f] mb-2 flex items-center gap-3">
                 <div className="h-10 w-10 rounded-lg bg-[#F5B400]/10 flex items-center justify-center">
                   <Shield className="h-5 w-5 text-[#F5B400]" />
                 </div>
                 Additional Services
               </h3>
-              <p className="text-white/40 text-sm mb-6">
+              <p className="text-[#0a1a0f]/40 text-sm mb-6">
                 Customize your shipping experience
               </p>
 
@@ -673,7 +673,7 @@ export default function GetQuotePage() {
                   className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${
                     formData.pickupRequired
                       ? "border-[#F5B400]/50 bg-[#F5B400]/10"
-                      : "border-white/10 bg-white/5 hover:border-white/20"
+                      : "border-gray-200 bg-gray-50 hover:border-gray-300"
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -681,10 +681,10 @@ export default function GetQuotePage() {
                       <Truck className="h-5 w-5 text-[#F5B400]" />
                     </div>
                     <div>
-                      <h4 className="text-white font-semibold text-sm">
+                      <h4 className="text-[#0a1a0f] font-semibold text-sm">
                         Door Pickup
                       </h4>
-                      <p className="text-white/50 text-xs">+$15</p>
+                      <p className="text-[#0a1a0f]/50 text-xs">+$15</p>
                     </div>
                   </div>
                   <input
@@ -712,7 +712,7 @@ export default function GetQuotePage() {
                   className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${
                     formData.fragile
                       ? "border-[#F5B400]/50 bg-[#F5B400]/10"
-                      : "border-white/10 bg-white/5 hover:border-white/20"
+                      : "border-gray-200 bg-gray-50 hover:border-gray-300"
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -720,10 +720,10 @@ export default function GetQuotePage() {
                       <Diamond className="h-5 w-5 text-[#F5B400]" />
                     </div>
                     <div>
-                      <h4 className="text-white font-semibold text-sm">
+                      <h4 className="text-[#0a1a0f] font-semibold text-sm">
                         Fragile Handling
                       </h4>
-                      <p className="text-white/50 text-xs">+$30</p>
+                      <p className="text-[#0a1a0f]/50 text-xs">+$30</p>
                     </div>
                   </div>
                   <input
@@ -751,7 +751,7 @@ export default function GetQuotePage() {
                   className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${
                     formData.insurance
                       ? "border-[#F5B400]/50 bg-[#F5B400]/10"
-                      : "border-white/10 bg-white/5 hover:border-white/20"
+                      : "border-gray-200 bg-gray-50 hover:border-gray-300"
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -759,10 +759,10 @@ export default function GetQuotePage() {
                       <Shield className="h-5 w-5 text-[#F5B400]" />
                     </div>
                     <div>
-                      <h4 className="text-white font-semibold text-sm">
+                      <h4 className="text-[#0a1a0f] font-semibold text-sm">
                         Transit Insurance
                       </h4>
-                      <p className="text-white/50 text-xs">3% of value</p>
+                      <p className="text-[#0a1a0f]/50 text-xs">3% of value</p>
                     </div>
                   </div>
                   <input
@@ -790,7 +790,7 @@ export default function GetQuotePage() {
                   className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${
                     formData.allInclusive
                       ? "border-[#F5B400]/50 bg-[#F5B400]/10"
-                      : "border-white/10 bg-white/5 hover:border-white/20"
+                      : "border-gray-200 bg-gray-50 hover:border-gray-300"
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -798,10 +798,10 @@ export default function GetQuotePage() {
                       <BadgeCheck className="h-5 w-5 text-[#F5B400]" />
                     </div>
                     <div>
-                      <h4 className="text-white font-semibold text-sm">
+                      <h4 className="text-[#0a1a0f] font-semibold text-sm">
                         All Inclusive Service
                       </h4>
-                      <p className="text-white/50 text-xs">
+                      <p className="text-[#0a1a0f]/50 text-xs">
                         Tax/VAT + All Payments Done
                       </p>
                       <p className="text-[#F5B400] text-[10px] font-medium">
@@ -835,7 +835,7 @@ export default function GetQuotePage() {
             <button
               onClick={calculateQuote}
               disabled={loading}
-              className="w-full h-16 bg-gradient-to-r from-[#F5B400] to-[#E5A500] hover:from-[#E5A500] hover:to-[#D49400] text-[#081f10] font-bold tracking-wide uppercase rounded-xl transition-all flex items-center justify-center gap-3 disabled:opacity-70 shadow-xl shadow-[#F5B400]/20 text-lg"
+              className="w-full h-16 bg-gradient-to-r from-[#F5B400] to-[#E5A500] hover:from-[#E5A500] hover:to-[#D49400] text-[#0a1a0f] font-bold tracking-wide uppercase rounded-xl transition-all flex items-center justify-center gap-3 disabled:opacity-70 shadow-xl shadow-[#F5B400]/20 text-lg"
             >
               {loading ? (
                 <>
@@ -856,36 +856,36 @@ export default function GetQuotePage() {
           <div className="lg:col-span-1">
             <div className="sticky top-24">
               {showResults && result ? (
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-6 animate-fade-in">
+                <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 space-y-6 animate-fade-in">
                   {/* Carrier Badge */}
                   <div className="flex items-center justify-center">
-                    <div className="px-4 py-2 rounded-full bg-white/10 border border-white/20">
-                      <span className="text-white/70 text-sm font-medium">
+                    <div className="px-4 py-2 rounded-full bg-gray-100 border border-gray-200">
+                      <span className="text-[#0a1a0f]/70 text-sm font-medium">
                         {selectedCarrier?.name} Selected
                       </span>
                     </div>
                   </div>
 
                   {/* Header */}
-                  <div className="text-center pb-4 border-b border-white/10">
-                    <p className="text-white/50 text-sm mb-1">
+                  <div className="text-center pb-4 border-b border-gray-200">
+                    <p className="text-[#0a1a0f]/50 text-sm mb-1">
                       Estimated Shipping Cost
                     </p>
                     <div className="flex items-baseline justify-center gap-1">
                       <span className="text-5xl font-bold text-[#F5B400]">
                         ${result.totalPrice}
                       </span>
-                      <span className="text-white/50">{result.currency}</span>
+                      <span className="text-[#0a1a0f]/50">{result.currency}</span>
                     </div>
                   </div>
 
                   {/* Route Info */}
-                  <div className="flex items-center justify-center gap-3 text-center bg-white/5 rounded-xl p-4">
-                    <span className="text-white font-medium">
+                  <div className="flex items-center justify-center gap-3 text-center bg-gray-50 rounded-xl p-4">
+                    <span className="text-[#0a1a0f] font-medium">
                       {formData.origin || "Origin"}
                     </span>
                     <ArrowRight className="h-4 w-4 text-[#F5B400]" />
-                    <span className="text-white font-medium">
+                    <span className="text-[#0a1a0f] font-medium">
                       {formData.destination || "Destination"}
                     </span>
                   </div>
@@ -896,10 +896,10 @@ export default function GetQuotePage() {
                       <Clock className="h-5 w-5 text-[#F5B400]" />
                     </div>
                     <div>
-                      <p className="text-white/50 text-xs uppercase tracking-wider">
+                      <p className="text-[#0a1a0f]/50 text-xs uppercase tracking-wider">
                         Estimated Delivery
                       </p>
-                      <p className="text-white font-semibold">
+                      <p className="text-[#0a1a0f] font-semibold">
                         {result.deliveryDays}
                       </p>
                     </div>
@@ -907,43 +907,43 @@ export default function GetQuotePage() {
 
                   {/* Price Breakdown */}
                   <div className="space-y-3">
-                    <h4 className="text-white/80 text-sm font-semibold uppercase tracking-wider flex items-center gap-2">
+                    <h4 className="text-[#0a1a0f]/80 text-sm font-semibold uppercase tracking-wider flex items-center gap-2">
                       <Percent className="h-4 w-4" />
                       Price Breakdown
                     </h4>
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
-                        <span className="text-white/50">Base Charge</span>
-                        <span className="text-white">
+                        <span className="text-[#0a1a0f]/50">Base Charge</span>
+                        <span className="text-[#0a1a0f]">
                           ${result.basePrice.toFixed(2)}
                         </span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-white/50">Weight Charge</span>
-                        <span className="text-white">
+                        <span className="text-[#0a1a0f]/50">Weight Charge</span>
+                        <span className="text-[#0a1a0f]">
                           ${result.weightCharge.toFixed(2)}
                         </span>
                       </div>
                       {result.volumetricCharge > 0 && (
                         <div className="flex justify-between text-sm">
-                          <span className="text-white/50">Volumetric Adj.</span>
-                          <span className="text-white">
+                          <span className="text-[#0a1a0f]/50">Volumetric Adj.</span>
+                          <span className="text-[#0a1a0f]">
                             ${result.volumetricCharge.toFixed(2)}
                           </span>
                         </div>
                       )}
                       <div className="flex justify-between text-sm">
-                        <span className="text-white/50">
+                        <span className="text-[#0a1a0f]/50">
                           {result.carrierName} Fee
                         </span>
-                        <span className="text-white">
+                        <span className="text-[#0a1a0f]">
                           ${result.carrierFee.toFixed(2)}
                         </span>
                       </div>
                       {result.additionalCharges > 0 && (
                         <div className="flex justify-between text-sm">
-                          <span className="text-white/50">Add-ons</span>
-                          <span className="text-white">
+                          <span className="text-[#0a1a0f]/50">Add-ons</span>
+                          <span className="text-[#0a1a0f]">
                             ${result.additionalCharges.toFixed(2)}
                           </span>
                         </div>
@@ -952,14 +952,14 @@ export default function GetQuotePage() {
                   </div>
 
                   {/* CTA Buttons */}
-                  <div className="space-y-3 pt-4 border-t border-white/10">
-                    <button className="w-full h-12 bg-[#F5B400] hover:bg-[#F5B400]/90 text-[#081f10] font-bold rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#F5B400]/20">
+                  <div className="space-y-3 pt-4 border-t border-gray-200">
+                    <button className="w-full h-12 bg-[#F5B400] hover:bg-[#F5B400]/90 text-[#0a1a0f] font-bold rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#F5B400]/20">
                       <Send className="h-4 w-4" />
                       Book Now
                     </button>
                     <button
                       onClick={resetForm}
-                      className="w-full h-12 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/5 transition-all flex items-center justify-center gap-2"
+                      className="w-full h-12 border border-gray-200 text-[#0a1a0f] font-semibold rounded-lg hover:bg-gray-50 transition-all flex items-center justify-center gap-2"
                     >
                       <RefreshCw className="h-4 w-4" />
                       New Quote
@@ -967,57 +967,57 @@ export default function GetQuotePage() {
                   </div>
 
                   {/* Trust Badges */}
-                  <div className="flex items-center justify-center gap-4 pt-4 border-t border-white/10">
-                    <div className="flex items-center gap-1 text-white/40 text-xs">
+                  <div className="flex items-center justify-center gap-4 pt-4 border-t border-gray-200">
+                    <div className="flex items-center gap-1 text-[#0a1a0f]/40 text-xs">
                       <Shield className="h-3 w-3" />
                       <span>Secure</span>
                     </div>
-                    <div className="flex items-center gap-1 text-white/40 text-xs">
+                    <div className="flex items-center gap-1 text-[#0a1a0f]/40 text-xs">
                       <Check className="h-3 w-3" />
                       <span>Insured</span>
                     </div>
-                    <div className="flex items-center gap-1 text-white/40 text-xs">
+                    <div className="flex items-center gap-1 text-[#0a1a0f]/40 text-xs">
                       <Globe className="h-3 w-3" />
                       <span>Tracked</span>
                     </div>
                   </div>
                 </div>
               ) : (
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
                   <div className="flex flex-col items-center text-center py-8">
                     <div className="h-20 w-20 rounded-full bg-gradient-to-br from-[#F5B400]/20 to-transparent flex items-center justify-center mb-4">
                       <Calculator className="h-10 w-10 text-[#F5B400]" />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">
+                    <h3 className="text-xl font-bold text-[#0a1a0f] mb-2">
                       Ready to Calculate
                     </h3>
-                    <p className="text-white/50 text-sm">
+                    <p className="text-[#0a1a0f]/50 text-sm">
                       Select a carrier, enter your details, and get an instant
                       quote
                     </p>
                   </div>
 
                   {/* Features */}
-                  <div className="space-y-3 pt-4 border-t border-white/10">
+                  <div className="space-y-3 pt-4 border-t border-gray-200">
                     <div className="flex items-center gap-3 text-sm">
                       <Check className="h-4 w-4 text-[#F5B400]" />
-                      <span className="text-white/70">
+                      <span className="text-[#0a1a0f]/70">
                         Multiple carrier options
                       </span>
                     </div>
                     <div className="flex items-center gap-3 text-sm">
                       <Check className="h-4 w-4 text-[#F5B400]" />
-                      <span className="text-white/70">Transparent pricing</span>
+                      <span className="text-[#0a1a0f]/70">Transparent pricing</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm">
                       <Check className="h-4 w-4 text-[#F5B400]" />
-                      <span className="text-white/70">
+                      <span className="text-[#0a1a0f]/70">
                         Real-time calculation
                       </span>
                     </div>
                     <div className="flex items-center gap-3 text-sm">
                       <Check className="h-4 w-4 text-[#F5B400]" />
-                      <span className="text-white/70">No hidden fees</span>
+                      <span className="text-[#0a1a0f]/70">No hidden fees</span>
                     </div>
                   </div>
                 </div>
@@ -1028,7 +1028,7 @@ export default function GetQuotePage() {
 
         {/* POPULAR ROUTES */}
         <div className="mt-16">
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">
+          <h2 className="text-2xl font-bold text-[#0a1a0f] mb-6 text-center">
             Popular <span className="text-[#F5B400]">Routes</span>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -1044,10 +1044,10 @@ export default function GetQuotePage() {
                   }));
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-[#F5B400]/30 hover:bg-[#F5B400]/5 transition-all text-center group"
+                className="bg-gray-50 border border-gray-200 rounded-xl p-4 hover:border-[#F5B400]/30 hover:bg-[#F5B400]/5 transition-all text-center group"
               >
                 <span className="text-2xl mb-2 block">{route.icon}</span>
-                <span className="text-white/70 text-xs group-hover:text-white transition-colors">
+                <span className="text-[#0a1a0f]/70 text-xs group-hover:text-[#0a1a0f] transition-colors">
                   {route.name}
                 </span>
               </button>
@@ -1057,25 +1057,25 @@ export default function GetQuotePage() {
 
         {/* TRUST SECTION */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center">
             <Globe className="h-8 w-8 text-[#F5B400] mx-auto mb-3" />
-            <h4 className="text-white font-bold">220+ Countries</h4>
-            <p className="text-white/50 text-sm">Worldwide Coverage</p>
+            <h4 className="text-[#0a1a0f] font-bold">220+ Countries</h4>
+            <p className="text-[#0a1a0f]/50 text-sm">Worldwide Coverage</p>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center">
             <Shield className="h-8 w-8 text-[#F5B400] mx-auto mb-3" />
-            <h4 className="text-white font-bold">100% Insured</h4>
-            <p className="text-white/50 text-sm">Secure Shipments</p>
+            <h4 className="text-[#0a1a0f] font-bold">100% Insured</h4>
+            <p className="text-[#0a1a0f]/50 text-sm">Secure Shipments</p>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center">
             <Clock className="h-8 w-8 text-[#F5B400] mx-auto mb-3" />
-            <h4 className="text-white font-bold">24/7 Support</h4>
-            <p className="text-white/50 text-sm">Always Available</p>
+            <h4 className="text-[#0a1a0f] font-bold">24/7 Support</h4>
+            <p className="text-[#0a1a0f]/50 text-sm">Always Available</p>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center">
             <Star className="h-8 w-8 text-[#F5B400] mx-auto mb-3" />
-            <h4 className="text-white font-bold">10K+ Reviews</h4>
-            <p className="text-white/50 text-sm">Customer Trust</p>
+            <h4 className="text-[#0a1a0f] font-bold">10K+ Reviews</h4>
+            <p className="text-[#0a1a0f]/50 text-sm">Customer Trust</p>
           </div>
         </div>
       </div>

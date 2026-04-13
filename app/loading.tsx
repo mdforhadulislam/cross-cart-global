@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-[#0a1a0f] px-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4">
       <div className="flex flex-col items-center gap-6 max-w-md w-full text-center">
         
         {/* 1. Branded Spinner Animation */}
@@ -12,7 +12,7 @@ export default function Loading() {
           <div className="absolute inset-2 h-[calc(100%-16px)] w-[calc(100%-16px)] animate-[spin_1.5s_linear_infinite_reverse] rounded-full border-2 border-t-[#F5B400] border-r-transparent border-b-[#F5B400]/50 border-l-transparent" />
           
           {/* Center Icon (Pulse) */}
-          <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded bg-[#F5B400] text-[#081f10] animate-pulse">
+          <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded bg-[#F5B400] text-[#0a1a0f] animate-pulse">
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               viewBox="0 0 24 24" 
@@ -31,7 +31,7 @@ export default function Loading() {
 
         {/* 2. Loading Text */}
         <div className="space-y-2">
-          <h2 className="text-xl font-bold text-white tracking-wide animate-pulse">
+          <h2 className="text-xl font-bold text-gray-900 tracking-wide animate-pulse">
             Preparing Shipment Data...
           </h2>
           <p className="text-sm text-[#F5B400]/70 font-mono">

@@ -95,7 +95,7 @@ function DesktopOverlay({
       aria-label="Navigation menu"
     >
       <div
-        className="absolute inset-0 bg-[#0a1a0f] backdrop-blur-md h-auto"
+        className="absolute inset-0 bg-white backdrop-blur-md h-auto"
         style={{
           clipPath: isOpen
             ? "circle(150% at 50px 50%)"
@@ -128,7 +128,7 @@ function DesktopOverlay({
                   <Link
                     href={link.href}
                     onClick={onClose}
-                    className="group flex items-center justify-between py-2.5 border-b border-white/6 transition-all duration-300"
+                    className="group flex items-center justify-between py-2.5 border-b border-gray-2006 transition-all duration-300"
                     style={{
                       opacity: isOpen ? 1 : 0,
                       transform: isOpen ? "translateY(0)" : "translateY(20px)",
@@ -139,13 +139,13 @@ function DesktopOverlay({
                       className={cn(
                         "text-[32px] font-bold tracking-tight transition-all duration-300",
                         pathname === link.href
-                          ? "text-white"
-                          : "text-white/40 group-hover:text-white/90",
+                          ? "text-gray-900"
+                          : "text-gray-900/40 group-hover:text-gray-900/90",
                       )}
                     >
                       {link.label}
                     </span>
-                    <ArrowUpRight className="h-6 w-6 text-white/20 group-hover:text-[#F5B400] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                    <ArrowUpRight className="h-6 w-6 text-gray-900/20 group-hover:text-[#F5B400] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
                   </Link>
 
                   {/* About Sub-links */}
@@ -158,7 +158,7 @@ function DesktopOverlay({
                             key={sub.href}
                             href={sub.href}
                             onClick={onClose}
-                            className="flex items-center gap-2 text-[18px] text-white/30 hover:text-white/70 transition-colors"
+                            className="flex items-center gap-2 text-[18px] text-gray-900/30 hover:text-gray-900/70 transition-colors"
                             style={{
                               opacity: isOpen ? 1 : 0,
                               transition: `all 0.5s ease ${0.5 + si * 0.1}s`,
@@ -187,14 +187,14 @@ function DesktopOverlay({
             <div className="flex flex-col gap-2">
               <a
                 href="tel:+8801234567890"
-                className="flex items-center gap-2 text-sm text-white/30 hover:text-white/60 transition-colors"
+                className="flex items-center gap-2 text-sm text-gray-900/30 hover:text-gray-900/60 transition-colors"
               >
                 <Phone className="h-4 w-4" />
                 <span>+880 1410-144466</span>
               </a>
               <a
                 href="mailto:cross.cart.bd@gmail.com"
-                className="flex items-center gap-2 text-sm text-white/30 hover:text-white/60 transition-colors"
+                className="flex items-center gap-2 text-sm text-gray-900/30 hover:text-gray-900/60 transition-colors"
               >
                 <Mail className="h-4 w-4" />
                 <span>cross.cart.bd@gmail.com</span>
@@ -208,7 +208,7 @@ function DesktopOverlay({
                     key={s.label}
                     href={s.href}
                     aria-label={s.label}
-                    className="flex h-12 w-12 items-center justify-center rounded-full border border-[#F5B400] text-white/30 hover:text-white hover:border-[#F5B400]/90 transition-all"
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-[#F5B400] text-gray-900/30 hover:text-gray-900 hover:border-[#F5B400]/90 transition-all"
                   >
                     <Icon className="h-10 w-10 text-[#F5B400]" />
                   </a>

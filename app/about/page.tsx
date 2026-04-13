@@ -34,7 +34,7 @@ const FEATURES = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#0a1a0f] pt-12 pb-20 px-5">
+    <div className="min-h-screen bg-white pt-12 pb-20 px-5">
       <div className="max-w-6xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
@@ -42,10 +42,10 @@ export default function AboutPage() {
             <Package className="h-4 w-4 text-[#F5B400]" />
             <span className="text-[#F5B400] text-sm font-medium">About Cross Cart Global</span>
           </div>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Your Trusted <span className="text-[#F5B400]">Global Logistics</span> Partner
           </h1>
-          <p className="text-white/50 max-w-3xl mx-auto text-lg">
+          <p className="text-gray-900/50 max-w-3xl mx-auto text-lg">
             Since 2009, Cross Cart Global has been delivering excellence in international courier, 
             logistics, and shipping solutions. We connect Bangladesh to the world with reliability and care.
           </p>
@@ -54,9 +54,9 @@ export default function AboutPage() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           {STATS.map((stat, index) => (
-            <div key={index} className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+            <div key={index} className="bg-white/5 border border-gray-200 rounded-2xl p-6 text-center">
               <div className="text-4xl font-bold text-[#F5B400] mb-2">{stat.number}</div>
-              <div className="text-white/50 text-sm">{stat.label}</div>
+              <div className="text-gray-900/50 text-sm">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -66,47 +66,47 @@ export default function AboutPage() {
           {FEATURES.map((feature, index) => {
             const Icon = feature.icon
             return (
-              <div key={index} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#F5B400]/30 transition-all">
+              <div key={index} className="bg-white/5 border border-gray-200 rounded-2xl p-6 hover:border-[#F5B400]/30 transition-all">
                 <div className="h-14 w-14 rounded-xl bg-[#F5B400]/10 flex items-center justify-center mb-4">
                   <Icon className="h-7 w-7 text-[#F5B400]" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-white/50">{feature.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-gray-900/50">{feature.description}</p>
               </div>
             )
           })}
         </div>
 
         {/* Mission Section */}
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-8 mb-16">
+        <div className="bg-white/5 border border-gray-200 rounded-2xl p-8 mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
-              <p className="text-white/50 mb-4">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Mission</h2>
+              <p className="text-gray-900/50 mb-4">
                 To provide seamless, reliable, and cost-effective logistics solutions that empower 
                 businesses and individuals to connect globally.
               </p>
-              <p className="text-white/50">
+              <p className="text-gray-900/50">
                 We believe that great logistics shouldn&apos;t be complicated. Our team works tirelessly 
                 to ensure your packages arrive safely, on time, every time.
               </p>
             </div>
-            <div className="bg-[#081f10] rounded-xl p-6">
-              <h3 className="text-white font-bold mb-4">Why Choose Us?</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <h3 className="text-gray-900 font-bold mb-4">Why Choose Us?</h3>
               <ul className="space-y-3">
-                <li className="flex items-center gap-3 text-white/70">
+                <li className="flex items-center gap-3 text-gray-900/70">
                   <CheckCircle2 className="h-5 w-5 text-[#F5B400]" />
                   Competitive rates for all destinations
                 </li>
-                <li className="flex items-center gap-3 text-white/70">
+                <li className="flex items-center gap-3 text-gray-900/70">
                   <CheckCircle2 className="h-5 w-5 text-[#F5B400]" />
                   24/7 customer support
                 </li>
-                <li className="flex items-center gap-3 text-white/70">
+                <li className="flex items-center gap-3 text-gray-900/70">
                   <CheckCircle2 className="h-5 w-5 text-[#F5B400]" />
                   Door-to-door service
                 </li>
-                <li className="flex items-center gap-3 text-white/70">
+                <li className="flex items-center gap-3 text-gray-900/70">
                   <CheckCircle2 className="h-5 w-5 text-[#F5B400]" />
                   Customs clearance assistance
                 </li>
@@ -117,9 +117,9 @@ export default function AboutPage() {
 
         {/* CTA */}
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Ready to Ship?</h2>
-          <p className="text-white/50 mb-6">Get an instant quote for your international shipment</p>
-          <Link href="/price" className="inline-flex items-center gap-2 px-8 py-4 bg-[#F5B400] hover:bg-[#F5B400]/90 text-[#081f10] font-bold rounded-xl transition-all">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Ready to Ship?</h2>
+          <p className="text-gray-900/50 mb-6">Get an instant quote for your international shipment</p>
+          <Link href="/price" className="inline-flex items-center gap-2 px-8 py-4 bg-[#F5B400] hover:bg-[#F5B400]/90 text-[#0a1a0f] font-bold rounded-xl transition-all">
             Get Quote <ArrowRight className="h-5 w-5" />
           </Link>
         </div>

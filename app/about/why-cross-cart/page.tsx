@@ -68,7 +68,7 @@ const TESTIMONIALS = [
 
 export default function WhyCrossCartPage() {
   return (
-    <div className="min-h-screen bg-[#0a1a0f] pt-12 pb-20 px-5">
+    <div className="min-h-screen bg-white pt-12 pb-20 px-5">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -78,10 +78,10 @@ export default function WhyCrossCartPage() {
               Why Choose Us
             </span>
           </div>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Why <span className="text-[#F5B400]">Cross Cart Global</span>?
           </h1>
-          <p className="text-white/50 max-w-2xl mx-auto">
+          <p className="text-gray-900/50 max-w-2xl mx-auto">
             We{"'"}re not just another logistics company. Here{"'"}s what makes
             us the preferred choice for thousands of businesses and individuals.
           </p>
@@ -94,15 +94,15 @@ export default function WhyCrossCartPage() {
             return (
               <div
                 key={index}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#F5B400]/30 transition-all group"
+                className="bg-white/5 border border-gray-200 rounded-2xl p-6 hover:border-[#F5B400]/30 transition-all group"
               >
                 <div className="h-14 w-14 rounded-xl bg-[#F5B400]/10 flex items-center justify-center mb-4 group-hover:bg-[#F5B400]/20 transition-all">
                   <Icon className="h-7 w-7 text-[#F5B400]" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {reason.title}
                 </h3>
-                <p className="text-white/50 text-sm">{reason.description}</p>
+                <p className="text-gray-900/50 text-sm">{reason.description}</p>
               </div>
             );
           })}
@@ -110,14 +110,14 @@ export default function WhyCrossCartPage() {
 
         {/* Testimonials */}
         <div className="mb-16">
-          <h2 className="text-2xl font-bold text-white text-center mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
             What Our Customers Say
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {TESTIMONIALS.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6"
+                className="bg-white/5 border border-gray-200 rounded-2xl p-6"
               >
                 <div className="flex items-center gap-1 mb-4">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -127,14 +127,14 @@ export default function WhyCrossCartPage() {
                     />
                   ))}
                 </div>
-                <p className="text-white/70 mb-4 italic">
+                <p className="text-gray-900/70 mb-4 italic">
                   {'"'}
                   {testimonial.text}
                   {'"'}
                 </p>
                 <div>
-                  <p className="text-white font-semibold">{testimonial.name}</p>
-                  <p className="text-white/40 text-sm">{testimonial.role}</p>
+                  <p className="text-gray-900 font-semibold">{testimonial.name}</p>
+                  <p className="text-gray-900/40 text-sm">{testimonial.role}</p>
                 </div>
               </div>
             ))}
@@ -146,35 +146,35 @@ export default function WhyCrossCartPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-[#F5B400] mb-2">15+</div>
-              <div className="text-white/50 text-sm">Years Experience</div>
+              <div className="text-gray-900/50 text-sm">Years Experience</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-[#F5B400] mb-2">50K+</div>
-              <div className="text-white/50 text-sm">Happy Customers</div>
+              <div className="text-gray-900/50 text-sm">Happy Customers</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-[#F5B400] mb-2">220+</div>
-              <div className="text-white/50 text-sm">Countries</div>
+              <div className="text-gray-900/50 text-sm">Countries</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-[#F5B400] mb-2">99%</div>
-              <div className="text-white/50 text-sm">On-time Delivery</div>
+              <div className="text-gray-900/50 text-sm">On-time Delivery</div>
             </div>
           </div>
         </div>
 
         {/* CTA */}
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Experience the Difference
           </h2>
-          <p className="text-white/50 mb-6">
+          <p className="text-gray-900/50 mb-6">
             Join thousands of satisfied customers who trust us with their
             shipments
           </p>
           <Link
             href="/price"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#F5B400] hover:bg-[#F5B400]/90 text-[#081f10] font-bold rounded-xl transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#F5B400] hover:bg-[#F5B400]/90 text-[#0a1a0f] font-bold rounded-xl transition-all"
           >
             Get Started <ArrowRight className="h-5 w-5" />
           </Link>

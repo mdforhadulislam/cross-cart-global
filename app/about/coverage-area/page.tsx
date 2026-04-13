@@ -251,7 +251,7 @@ export default function CoverageAreaPage() {
     : getFilteredCountries(selectedRegion)
 
   return (
-    <div className="min-h-screen bg-[#0a1a0f] pt-12 pb-20 px-5">
+    <div className="min-h-screen bg-white pt-12 pb-20 px-5">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -259,37 +259,37 @@ export default function CoverageAreaPage() {
             <Globe className="h-4 w-4 text-[#F5B400]" />
             <span className="text-[#F5B400] text-sm font-medium">Global Network</span>
           </div>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Our <span className="text-[#F5B400]">Coverage Area</span>
           </h1>
-          <p className="text-white/50 max-w-2xl mx-auto">
+          <p className="text-gray-900/50 max-w-2xl mx-auto">
             We deliver to {COUNTRIES.length}+ countries and territories worldwide.
           </p>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+          <div className="bg-white/5 border border-gray-200 rounded-xl p-6 text-center">
             <div className="text-4xl font-bold text-[#F5B400] mb-2">{COUNTRIES.length}+</div>
-            <div className="text-white/50 text-sm">Countries</div>
+            <div className="text-gray-900/50 text-sm">Countries</div>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+          <div className="bg-white/5 border border-gray-200 rounded-xl p-6 text-center">
             <div className="text-4xl font-bold text-[#F5B400] mb-2">50K+</div>
-            <div className="text-white/50 text-sm">Cities</div>
+            <div className="text-gray-900/50 text-sm">Cities</div>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+          <div className="bg-white/5 border border-gray-200 rounded-xl p-6 text-center">
             <div className="text-4xl font-bold text-[#F5B400] mb-2">24/7</div>
-            <div className="text-white/50 text-sm">Support</div>
+            <div className="text-gray-900/50 text-sm">Support</div>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+          <div className="bg-white/5 border border-gray-200 rounded-xl p-6 text-center">
             <div className="text-4xl font-bold text-[#F5B400] mb-2">48h</div>
-            <div className="text-white/50 text-sm">Avg. Transit</div>
+            <div className="text-gray-900/50 text-sm">Avg. Transit</div>
           </div>
         </div>
 
         {/* Popular Routes */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
             <Plane className="h-6 w-6 text-[#F5B400]" />
             Popular Routes from Bangladesh
           </h2>
@@ -302,9 +302,9 @@ export default function CoverageAreaPage() {
               { to: "UK", flag: "🇬🇧", time: "7-10 days" },
               { to: "Malaysia", flag: "🇲🇾", time: "5-7 days" },
             ].map((route, index) => (
-              <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-[#F5B400]/30 transition-all">
+              <div key={index} className="bg-white/5 border border-gray-200 rounded-xl p-4 hover:border-[#F5B400]/30 transition-all">
                 <div className="text-3xl mb-2">{route.flag}</div>
-                <div className="text-white font-medium text-sm">{route.to}</div>
+                <div className="text-gray-900 font-medium text-sm">{route.to}</div>
                 <div className="text-[#F5B400] text-xs mt-1">{route.time}</div>
               </div>
             ))}
@@ -314,13 +314,13 @@ export default function CoverageAreaPage() {
         {/* Search */}
         <div className="mb-6">
           <div className="relative max-w-md mx-auto">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-white/40" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-900/40" />
             <input
               type="text"
               placeholder="Search country..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white placeholder:text-white/30 focus:border-[#F5B400]/50 outline-none transition-all"
+              className="w-full bg-white/5 border border-gray-200 rounded-xl pl-12 pr-4 py-3 text-gray-900 placeholder:text-gray-900/30 focus:border-[#F5B400]/50 outline-none transition-all"
             />
           </div>
         </div>
@@ -334,8 +334,8 @@ export default function CoverageAreaPage() {
                 onClick={() => setSelectedRegion(region.id)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   selectedRegion === region.id
-                    ? "bg-[#F5B400] text-[#081f10]"
-                    : "bg-white/5 border border-white/10 text-white/70 hover:bg-white/10"
+                    ? "bg-[#F5B400] text-[#0a1a0f]"
+                    : "bg-white/5 border border-gray-200 text-gray-900/70 hover:bg-white/10"
                 }`}
               >
                 {region.name} ({region.count})
@@ -347,7 +347,7 @@ export default function CoverageAreaPage() {
         {/* Countries Grid */}
         <div>
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold text-white flex items-center gap-3">
+            <h2 className="text-xl font-bold text-gray-900 flex items-center gap-3">
               <MapPin className="h-6 w-6 text-[#F5B400]" />
               {searchQuery ? `Search Results (${filteredCountries.length})` : `${REGIONS.find(r => r.id === selectedRegion)?.name} Countries`}
             </h2>
@@ -366,18 +366,18 @@ export default function CoverageAreaPage() {
               {filteredCountries.map((country, index) => (
                 <div
                   key={index}
-                  className="bg-white/5 border border-white/10 rounded-lg p-3 text-center hover:border-[#F5B400]/30 hover:bg-[#F5B400]/5 transition-all cursor-pointer group"
+                  className="bg-white/5 border border-gray-200 rounded-lg p-3 text-center hover:border-[#F5B400]/30 hover:bg-[#F5B400]/5 transition-all cursor-pointer group"
                 >
                   <div className="text-2xl mb-1">{country.flag}</div>
-                  <div className="text-white text-xs font-medium truncate group-hover:text-[#F5B400] transition-colors">{country.name}</div>
-                  <div className="text-white/30 text-[10px]">{country.code}</div>
+                  <div className="text-gray-900 text-xs font-medium truncate group-hover:text-[#F5B400] transition-colors">{country.name}</div>
+                  <div className="text-gray-900/30 text-[10px]">{country.code}</div>
                 </div>
               ))}
             </div>
           ) : (
             <div className="text-center py-12">
-              <Globe className="h-12 w-12 text-white/20 mx-auto mb-4" />
-              <p className="text-white/50">No countries found matching &quot;{searchQuery}&quot;</p>
+              <Globe className="h-12 w-12 text-gray-900/20 mx-auto mb-4" />
+              <p className="text-gray-900/50">No countries found matching &quot;{searchQuery}&quot;</p>
             </div>
           )}
         </div>
@@ -387,8 +387,8 @@ export default function CoverageAreaPage() {
           <div className="flex items-start gap-4">
             <Package className="h-6 w-6 text-[#F5B400] shrink-0 mt-1" />
             <div>
-              <h4 className="text-white font-semibold mb-2">Delivery Not Available?</h4>
-              <p className="text-white/60 text-sm">
+              <h4 className="text-gray-900 font-semibold mb-2">Delivery Not Available?</h4>
+              <p className="text-gray-900/60 text-sm">
                 If your destination is not listed, please contact our support team. 
                 We are constantly expanding our network to serve more destinations.
               </p>
@@ -397,7 +397,7 @@ export default function CoverageAreaPage() {
         </div>
 
         {/* Trust Badge */}
-        <div className="mt-8 flex items-center justify-center gap-3 text-white/40 text-sm">
+        <div className="mt-8 flex items-center justify-center gap-3 text-gray-900/40 text-sm">
           <CheckCircle2 className="h-5 w-5 text-[#F5B400]" />
           <span>All shipments include tracking, insurance, and customs clearance support</span>
         </div>

@@ -124,14 +124,14 @@ const SOCIALS = [
    ══════════════════════════════════ */
 function WarehouseCard({ location }: { location: WarehouseLocation }) {
   return (
-    <div className="group relative flex flex-col h-full rounded-xl border border-white/6 bg-white/2 hover:bg-white/4 hover:border-[#F5B400]/20 transition-all duration-300 overflow-hidden">
+    <div className="group relative flex flex-col h-full rounded-xl border border-gray-2006 bg-white/2 hover:bg-white/4 hover:border-[#F5B400]/20 transition-all duration-300 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-[#F5B400]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
       <div className="p-5 flex flex-col flex-1 gap-3">
         {/* City + Area Header */}
         <div className="flex items-start justify-between">
           <div>
-            <h4 className="text-[16px] font-bold text-white/90 group-hover:text-white transition-colors">
+            <h4 className="text-[16px] font-bold text-gray-900/90 group-hover:text-gray-900 transition-colors">
               {location.city}
             </h4>
             <p className="text-[13px] text-[#F5B400]/70 mt-0.5">
@@ -144,7 +144,7 @@ function WarehouseCard({ location }: { location: WarehouseLocation }) {
         </div>
 
         {/* Address */}
-        <p className="text-[13px] leading-relaxed text-white/35">
+        <p className="text-[13px] leading-relaxed text-gray-900/35">
           {location.address}
         </p>
 
@@ -152,19 +152,19 @@ function WarehouseCard({ location }: { location: WarehouseLocation }) {
         <div className="flex-1" />
 
         {/* Phone + Hours */}
-        <div className="flex flex-col gap-2 pt-2 border-t border-white/5">
+        <div className="flex flex-col gap-2 pt-2 border-t border-gray-2005">
           <div className="flex items-center gap-2">
-            <Phone className="h-3.5 w-3.5 text-white/25 shrink-0" />
+            <Phone className="h-3.5 w-3.5 text-gray-900/25 shrink-0" />
             <a
               href={`tel:${location.phone.replace(/\s/g, "")}`}
-              className="text-[12px] text-white/40 hover:text-[#F5B400] transition-colors truncate"
+              className="text-[12px] text-gray-900/40 hover:text-[#F5B400] transition-colors truncate"
             >
               {location.phone}
             </a>
           </div>
           <div className="flex items-center gap-2">
-            <Clock className="h-3.5 w-3.5 text-white/25 shrink-0" />
-            <span className="text-[12px] text-white/30">{location.hours}</span>
+            <Clock className="h-3.5 w-3.5 text-gray-900/25 shrink-0" />
+            <span className="text-[12px] text-gray-900/30">{location.hours}</span>
           </div>
         </div>
 
@@ -198,7 +198,7 @@ function AccordionItem({
   const Icon = section.icon;
 
   return (
-    <div className="border-b border-white/8 last:border-b-0">
+    <div className="border-b border-gray-2008 last:border-b-0">
       <button
         onClick={onToggle}
         className="flex items-center justify-between w-full py-4 px-1 text-left group"
@@ -206,7 +206,7 @@ function AccordionItem({
       >
         <div className="flex items-center gap-3">
           <Icon className="h-4 w-4 text-[#F5B400]" />
-          <span className="text-[15px] font-bold tracking-wide uppercase text-white/90 group-hover:text-white transition-colors">
+          <span className="text-[15px] font-bold tracking-wide uppercase text-gray-900/90 group-hover:text-gray-900 transition-colors">
             {section.title}
           </span>
         </div>
@@ -230,7 +230,7 @@ function AccordionItem({
             <Link
               key={link.href}
               href={link.href}
-              className="py-2 text-[14px] text-white/45 hover:text-[#F5B400] transition-colors duration-200"
+              className="py-2 text-[14px] text-gray-900/45 hover:text-[#F5B400] transition-colors duration-200"
             >
               {link.label}
             </Link>
@@ -262,7 +262,7 @@ function BackToTop() {
       onClick={scrollToTop}
       className={cn(
         "fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-lg",
-        "bg-[#F5B400] text-[#081f10] shadow-lg shadow-black/30",
+        "bg-[#F5B400] text-[#0a1a0f] shadow-lg shadow-black/30",
         "hover:bg-[#F5B400]/90 active:scale-[0.92]",
         "transition-all duration-300",
         visible
@@ -290,7 +290,7 @@ export default function Footer() {
     <React.Fragment>
       <BackToTop />
 
-      <footer className="bg-[#0a1a0f] relative overflow-hidden">
+      <footer className="bg-white relative overflow-hidden">
         {/* ─── Decorative Top Border ─── */}
         <div className="h-0.5 bg-linear-to-r from-transparent via-[#F5B400]/40 to-transparent" />
 
@@ -306,7 +306,7 @@ export default function Footer() {
                 height={45}
                 className="h-20 md:h-18 lg:h-20 w-auto object-contain brightness-110 mb-4"
               />
-              <p className="text-[15px] leading-relaxed text-white/40">
+              <p className="text-[15px] leading-relaxed text-gray-900/40">
                 Cross Cart Global is your trusted partner for international
                 parcel delivery. We provide fast, reliable, and affordable
                 shipping solutions from anywhere in the world to Bangladesh and
@@ -321,18 +321,18 @@ export default function Footer() {
                   <Phone className="h-5 w-5 text-[#F5B400]" />
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-[11px] uppercase tracking-widest text-white/30 mb-0.5">
+                  <p className="text-[11px] uppercase tracking-widest text-gray-900/30 mb-0.5">
                     Call Us
                   </p>
                   <a
                     href="tel:+8801410144466"
-                    className="text-[14px] font-semibold text-white/80 group-hover:text-white transition-colors p-0 m-0"
+                    className="text-[14px] font-semibold text-gray-900/80 group-hover:text-gray-900 transition-colors p-0 m-0"
                   >
                     +8801410144466
                   </a>
                   <a
                     href="tel:+8801811107751"
-                    className="text-[14px] font-semibold text-white/80 group-hover:text-white transition-colors  p-0 m-0"
+                    className="text-[14px] font-semibold text-gray-900/80 group-hover:text-gray-900 transition-colors  p-0 m-0"
                   >
                     +8801811107751
                   </a>
@@ -347,10 +347,10 @@ export default function Footer() {
                   <Mail className="h-5 w-5 text-[#F5B400]" />
                 </div>
                 <div>
-                  <p className="text-[11px] uppercase tracking-widest text-white/30 mb-0.5">
+                  <p className="text-[11px] uppercase tracking-widest text-gray-900/30 mb-0.5">
                     Email Us
                   </p>
-                  <p className="text-[14px] font-semibold text-white/80 group-hover:text-white transition-colors">
+                  <p className="text-[14px] font-semibold text-gray-900/80 group-hover:text-gray-900 transition-colors">
                     cross.cart.bd@gmail.com
                   </p>
                 </div>
@@ -361,10 +361,10 @@ export default function Footer() {
                   <MapPin className="h-5 w-5 text-[#F5B400]" />
                 </div>
                 <div>
-                  <p className="text-[11px] uppercase tracking-widest text-white/30 mb-0.5">
+                  <p className="text-[11px] uppercase tracking-widest text-gray-900/30 mb-0.5">
                     Visit Us
                   </p>
-                  <p className="text-[14px] font-semibold text-white/80 group-hover:text-white transition-colors">
+                  <p className="text-[14px] font-semibold text-gray-900/80 group-hover:text-gray-900 transition-colors">
                     Bangladesh
                   </p>
                 </div>
@@ -387,11 +387,11 @@ export default function Footer() {
             <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#F5B400]/30 bg-[#F5B400]/8">
               <Building2 className="h-4.5 w-4.5 text-[#F5B400]" />
             </div>
-            <h2 className="text-[18px] lg:text-[20px] font-bold tracking-tight text-white/90">
+            <h2 className="text-[18px] lg:text-[20px] font-bold tracking-tight text-gray-900/90">
               Our Warehouse Locations
             </h2>
           </div>
-          <p className="text-[14px] text-white/30 mb-8 lg:mb-10 pl-12">
+          <p className="text-[14px] text-gray-900/30 mb-8 lg:mb-10 pl-12">
             Visit any of our warehouses across Bangladesh for drop-off, pickup,
             or assistance.
           </p>
@@ -439,7 +439,7 @@ export default function Footer() {
                   <div key={section.title}>
                     <div className="flex items-center gap-2.5 mb-6">
                       <Icon className="h-4.5 w-4.5 text-[#F5B400]" />
-                      <h3 className="text-[13px] font-bold tracking-[0.15em] uppercase text-white/90">
+                      <h3 className="text-[13px] font-bold tracking-[0.15em] uppercase text-gray-900/90">
                         {section.title}
                       </h3>
                     </div>
@@ -448,7 +448,7 @@ export default function Footer() {
                         <li key={link.href}>
                           <Link
                             href={link.href}
-                            className="py-2 text-[14px] text-white/35 hover:text-[#F5B400] transition-colors duration-200 inline-block"
+                            className="py-2 text-[14px] text-gray-900/35 hover:text-[#F5B400] transition-colors duration-200 inline-block"
                           >
                             {link.label}
                           </Link>
@@ -487,7 +487,7 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
             {/* Copyright */}
-            <p className="text-[13px] text-white/30 text-center sm:text-left">
+            <p className="text-[13px] text-gray-900/30 text-center sm:text-left">
               &copy; {new Date().getFullYear()} Cross Cart Global. All Rights
               Reserved.
             </p>
@@ -501,7 +501,7 @@ export default function Footer() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/2 text-white/25 hover:text-[#F5B400] hover:border-[#F5B400]/40 hover:bg-[#F5B400]/5 transition-all duration-300"
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-20010 bg-white/2 text-gray-900/25 hover:text-[#F5B400] hover:border-[#F5B400]/40 hover:bg-[#F5B400]/5 transition-all duration-300"
                   >
                     <Icon className="h-9 w-9" />
                   </a>

@@ -3,34 +3,22 @@
 @import "shadcn/tailwind.css";
 
 /* =========================================
-   🌗 DARK MODE VARIANT
-========================================= */
-@custom-variant dark (&:is(.dark *));
-
-/* =========================================
    🎨 THEME TOKENS (TAILWIND v4)
-========================================= */
+   ========================================= */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
-  /* ✅ FONT VARIABLES (FIXED) */
   --font-sans: var(--font-sans);
   --font-mono: var(--font-keania-one), monospace;
-
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -61,96 +49,72 @@
 }
 
 /* =========================================
-   🌍 ROOT – BRAND SYSTEM
-========================================= */
+   🌍 ROOT – BRAND COLORS
+   ========================================= */
 :root {
   --radius: 0.625rem;
-
-  /* Brand */
-  --primary: oklch(0.205 0 0); /* Green */
-  --accent: oklch(0.97 0 0); /* Red */
-  --gold: oklch(0.85 0.15 90); /* Premium Gold */
-
-  --primary-foreground: oklch(0.985 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-
-  /* UI */
-
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-}
-
-/* =========================================
-   🌑 DARK MODE
-========================================= */
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-
-  --primary: oklch(0.922 0 0);
-  --accent: oklch(0.269 0 0);
-
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  
+  /* Brand Colors */
+  --gold: #F5B400;
+  --forest-green: #0a1a0f;
+  
+  /* Primary - Forest Green */
+  --primary: #0a1a0f;
+  --primary-foreground: #ffffff;
+  
+  /* Accent - Gold */
+  --accent: #F5B400;
+  --accent-foreground: #0a1a0f;
+  
+  /* Background - White */
+  --background: #ffffff;
+  --foreground: #0a1a0f;
+  
+  /* Card */
+  --card: #ffffff;
+  --card-foreground: #0a1a0f;
+  
+  /* Muted */
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  
+  /* Border */
+  --border: #e2e8f0;
+  --input: #f1f5f9;
+  --ring: #F5B400;
+  
+  /* Popover */
+  --popover: #ffffff;
+  --popover-foreground: #0a1a0f;
+  
+  /* Secondary */
+  --secondary: #f8fafc;
+  --secondary-foreground: #0a1a0f;
+  
+  /* Destructive */
+  --destructive: #ef4444;
+  
+  /* Charts */
+  --chart-1: #0a1a0f;
+  --chart-2: #F5B400;
+  --chart-3: #3b82f6;
+  --chart-4: #10b981;
+  --chart-5: #8b5cf6;
+  
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0a1a0f;
+  --sidebar-primary: #0a1a0f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f8fafc;
+  --sidebar-accent-foreground: #0a1a0f;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #F5B400;
 }
 
 /* =========================================
    🧱 BASE STYLES
-========================================= */
+   ========================================= */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -160,24 +124,22 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
+  h1, h2, h3, h4 {
     font-family: var(--font-keania-one);
     letter-spacing: 0.04em;
   }
+  
   html {
-    @apply font-sans;
+    @apply font-sans scroll-smooth;
   }
 }
 
 /* =========================================
-   🧩 UTILITIES (Marketplace Feel)
-========================================= */
+   🧩 UTILITIES
+   ========================================= */
 @layer utilities {
   .heading {
-    @apply text-3xl font-bold;
+    @apply text-3xl font-bold text-[#0a1a0f];
   }
 
   .subheading {
@@ -185,29 +147,25 @@
   }
 
   .price {
-    @apply text-lg font-semibold text-primary;
+    @apply text-lg font-semibold text-[#0a1a0f];
   }
 
   .badge-gold {
-    background: var(--gold);
-    color: black;
+    background: #F5B400;
+    color: #0a1a0f;
     @apply px-2 py-0.5 text-xs rounded-full font-medium;
   }
 
   .cta {
-    @apply bg-accent text-accent-foreground rounded-full
+    @apply bg-[#F5B400] text-[#0a1a0f] rounded-full
            transition-all duration-200
            hover:scale-[1.03] hover:shadow-lg;
-  }
-
-  a {
-    @apply px-4 py-2;
   }
 }
 
 /* =========================================
-   🖱️ SCROLLBAR (Custom)
-========================================= */
+   🖱️ SCROLLBAR
+   ========================================= */
 html {
   overscroll-behavior: none;
 }
@@ -218,150 +176,79 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #666;
-  border-radius: 10px;
+  background: #cbd5e1;
+  border-radius: 8px;
 }
 
-/* scroll bar styling custom table */
-.hiddenScrollBar::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
-::-webkit-scrollbar {
-  width: 7px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #666;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-button:single-button {
-  background-color: #f1f1f1;
-  display: block;
-  background-size: 7px;
-  background-repeat: no-repeat;
-}
-
-/* Up */
-::-webkit-scrollbar-button:single-button:vertical:decrement {
-  border-radius: 10px 10px 0 0;
-  height: 10px;
-  width: 7px;
-  background-position: center 4px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='50,00 0,50 100,50'/></svg>");
-}
-
-/* Down */
-::-webkit-scrollbar-button:single-button:vertical:increment {
-  border-radius: 0px 0px 10px 10px;
-  height: 10px;
-  width: 7px;
-  background-position: center 4px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,0 100,0 50,50'/></svg>");
-}
-
-/* Left */
-::-webkit-scrollbar-button:single-button:horizontal:decrement {
-  border-radius: 10px 0px 0 10px;
-  height: 7px;
-  width: 7px;
-  background-position: 0px 0px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,50 50,100 50,0'/></svg>");
-}
-
-/* Right */
-::-webkit-scrollbar-button:single-button:horizontal:increment {
-  border-radius: 0 10px 10px 0;
-  height: 7px;
-  width: 7px;
-  background-position: 0px 0px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,0 0,100 50,50'/></svg>");
-}
-/* End scroll bar modify */
-
-.ui-card {
-  background: var(--card-bg, #fff);
-  border-radius: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.ui-card-hover:hover {
-  background: linear-gradient(135deg, #f9fafb, #ffffff);
-}
-
+/* =========================================
+   🎭 ANIMATIONS
+   ========================================= */
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes pulseRing {
-  0% {
-    transform: scale(0.8);
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(1.2);
-    opacity: 0;
-  }
+  0% { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(1.2); opacity: 0; }
 }
 
 @keyframes corePulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.85);
-  }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.85); }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* =========================================
+   🎨 CARD STYLES
+   ========================================= */
+.ui-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(10, 26, 15, 0.05);
+}
+
+.ui-card-hover:hover {
+  border-color: #F5B400;
+  box-shadow: 0 4px 12px rgba(245, 180, 0, 0.15);
 }
