@@ -1,4 +1,11 @@
 import { Calendar, Scale } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Terms & Conditions | Cross Cart Global',
+  description: 'Read the terms and conditions governing your use of Cross Cart Global shipping services. Understand our shipping restrictions, liability, payment terms, and more.',
+  keywords: 'terms and conditions, shipping terms, service agreement, legal terms',
+}
 
 export default function TermsAndConditionsPage() {
   return (

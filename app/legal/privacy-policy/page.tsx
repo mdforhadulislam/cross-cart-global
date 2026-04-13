@@ -1,4 +1,11 @@
 import { Calendar, Lock, Shield } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Cross Cart Global',
+  description: 'Cross Cart Global privacy policy - Learn how we collect, use, and protect your personal information when you use our shipping and logistics services.',
+  keywords: 'privacy policy, data protection, personal information, privacy',
+}
 
 export default function PrivacyPolicyPage() {
   return (

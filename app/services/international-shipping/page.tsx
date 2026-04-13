@@ -1,5 +1,12 @@
 import { ArrowRight, CheckCircle2, Globe, Plane, Ship, Truck } from 'lucide-react'
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'International Shipping Services | Cross Cart Global',
+  description: 'Ship to over 220 countries worldwide. Air freight, sea freight, and land transport options. Connect Bangladesh to India, China, USA, UK, UAE, Malaysia and more.',
+  keywords: 'international shipping, air freight, sea freight, global shipping, cargo Bangladesh',
+}
 
 const SERVICES = [
   { icon: Plane, title: "Air Freight", desc: "3-10 business days", color: "#3B82F6" },

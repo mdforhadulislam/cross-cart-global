@@ -7,6 +7,13 @@ import {
   Truck,
 } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "How It Works - Cross Cart Global | Shipping Process",
+  description: "Learn how Cross Cart Global's shipping process works - from pickup to delivery. Simple 5-step process for international courier services.",
+  keywords: ["how shipping works", "courier process", "shipping steps", "delivery process Bangladesh"],
+}
 
 const STEPS = [
   {

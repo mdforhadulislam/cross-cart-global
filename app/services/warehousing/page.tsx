@@ -1,6 +1,13 @@
 import React from 'react'
 import { Package, Shield, Truck, MapPin, CheckCircle2, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Warehousing & Storage Services | Cross Cart Global',
+  description: 'Secure, climate-controlled warehousing and storage facilities for your business. Complete fulfillment solutions including inventory management and pick-pack-ship services.',
+  keywords: 'warehousing, storage, inventory management, fulfillment, warehouse Bangladesh, storage solutions',
+}
 
 const FEATURES = [
   { icon: Package, title: "Secure Storage", desc: "Climate-controlled warehouses" },

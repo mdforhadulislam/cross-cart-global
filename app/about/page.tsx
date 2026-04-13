@@ -1,6 +1,13 @@
 import React from 'react'
 import { Globe, Package, Shield, Clock, CheckCircle2, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "About Us - Cross Cart Global | International Courier & Logistics",
+  description: "Learn about Cross Cart Global - your trusted partner for international courier, logistics, and shipping solutions. 15+ years experience, 220+ countries served.",
+  keywords: ["Cross Cart Global about", "courier company Bangladesh", "international logistics company", "shipping company Dhaka"],
+}
 
 const STATS = [
   { number: "15+", label: "Years Experience" },

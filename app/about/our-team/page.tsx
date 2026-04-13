@@ -1,4 +1,11 @@
 import { Mail, Phone, Users } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Team - Cross Cart Global | Meet the Leadership",
+  description: "Meet the experienced leadership team behind Cross Cart Global. Experts in logistics, operations, and customer service.",
+  keywords: ["cross cart team", "logistics team", "courier company leadership", "Bangladesh logistics team"],
+}
 
 const TEAM = [
   {

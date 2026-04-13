@@ -1,4 +1,11 @@
 import { Calendar, RefreshCw } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Refund Policy | Cross Cart Global',
+  description: 'Understand our refund policy including eligibility criteria, non-refundable items, refund process timeline, and how refunds are processed.',
+  keywords: 'refund policy, money back, refund process, refund eligibility',
+}
 
 export default function RefundPolicyPage() {
   return (

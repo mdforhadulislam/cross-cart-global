@@ -1,5 +1,12 @@
 import React from 'react'
 import { Truck, Clock, Package, Calendar } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Shipping Policy | Cross Cart Global',
+  description: 'Learn about our shipping policy including delivery timeframes, shipping process, packaging requirements, and delivery attempts for international shipments.',
+  keywords: 'shipping policy, delivery policy, shipping process, delivery timeframes',
+}
 
 export default function ShippingPolicyPage() {
   return (

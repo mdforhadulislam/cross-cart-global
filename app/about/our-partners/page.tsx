@@ -1,5 +1,12 @@
 import React from 'react'
 import { Users, ExternalLink, Award } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Our Partners - Cross Cart Global | Strategic Partnerships",
+  description: "Cross Cart Global partners with DHL, FedEx, UPS, Aramex and more for global coverage. Strong partnerships for reliable shipping services.",
+  keywords: ["cross cart partners", "DHL partner", "FedEx partner", "logistics partnerships Bangladesh"],
+}
 
 const PARTNERS = [
   { name: "DHL Express", type: "Logistics Partner", color: "#FFCC00" },

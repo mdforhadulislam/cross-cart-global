@@ -1,6 +1,13 @@
 import React from 'react'
 import { Zap, Clock, Shield, CheckCircle2, ArrowRight, Package } from 'lucide-react'
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Express Delivery Service | Cross Cart Global',
+  description: 'Fast express delivery within 24-48 hours to major destinations worldwide. Door-to-door service with real-time tracking and full insurance coverage.',
+  keywords: 'express delivery, same day delivery, fast shipping, urgent delivery, express courier',
+}
 
 const FEATURES = [
   { icon: Zap, title: "Same Day Delivery", desc: "Within 24 hours" },

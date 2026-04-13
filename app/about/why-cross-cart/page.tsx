@@ -8,6 +8,13 @@ import {
   Truck,
 } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Why Choose Cross Cart Global | Best International Courier Service",
+  description: "Discover why Cross Cart Global is the best choice for international shipping. Secure, fast, and affordable courier services with 99% customer satisfaction.",
+  keywords: ["why cross cart", "best courier service", "reliable shipping", "courier Bangladesh"],
+}
 
 const REASONS = [
   {

@@ -1,5 +1,12 @@
 import React from 'react'
 import { Bell } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Service Updates & Announcements | Cross Cart Global',
+  description: 'Stay informed about our latest service expansions, new shipping routes, feature updates, and important announcements from Cross Cart Global.',
+  keywords: 'service updates, news, announcements, new routes, shipping news',
+}
 
 const UPDATES = [
   { date: "Jan 15, 2024", title: "New Route: Bangladesh to Japan", desc: "Now shipping to Japan with 7-10 day delivery" },

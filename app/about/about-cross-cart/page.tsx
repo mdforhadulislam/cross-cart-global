@@ -7,6 +7,13 @@ import {
   Shield,
 } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Story - Cross Cart Global | Company History & Timeline",
+  description: "Discover the journey of Cross Cart Global from a small courier service in 2009 to a global logistics leader serving 220+ countries.",
+  keywords: ["cross cart history", "company story", "logistics company Bangladesh", "courier service history"],
+}
 
 const TIMELINE = [
   {

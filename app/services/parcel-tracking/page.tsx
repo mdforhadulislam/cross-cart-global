@@ -1,6 +1,13 @@
 import React from 'react'
 import { Search, Package, MapPin, CheckCircle2, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Parcel Tracking Service | Cross Cart Global',
+  description: 'Track your shipments in real-time. Get instant updates on location, status, and estimated delivery time for all your international packages.',
+  keywords: 'parcel tracking, shipment tracking, track package, delivery status, tracking number',
+}
 
 const STEPS = [
   { icon: Package, title: "Enter Tracking ID", desc: "Enter your tracking number" },

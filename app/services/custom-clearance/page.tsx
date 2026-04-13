@@ -1,5 +1,12 @@
 import { ArrowRight, CheckCircle2, FileText } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Custom Clearance Services | Cross Cart Global',
+  description: 'Expert customs clearance for international shipments. Navigate complex regulations with our experienced team handling all documentation and compliance requirements.',
+  keywords: 'custom clearance, customs broker, import export clearance, duty consultation, customs documentation',
+}
 
 const SERVICES = [
   { title: "Import Clearance", desc: "Process incoming shipments" },

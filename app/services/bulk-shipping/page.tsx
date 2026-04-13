@@ -1,6 +1,13 @@
 import React from 'react'
 import { Package, DollarSign, Truck, CheckCircle2, ArrowRight, Ship } from 'lucide-react'
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Bulk Shipping Services | Cross Cart Global',
+  description: 'Cost-effective bulk shipping solutions for businesses. Enjoy volume discounts up to 40%, dedicated account management, and API integration for high-volume shippers.',
+  keywords: 'bulk shipping, business shipping, volume discount, enterprise shipping, bulk cargo',
+}
 
 const BENEFITS = [
   { icon: DollarSign, title: "Volume Discounts", desc: "Save up to 40% on bulk shipments" },
