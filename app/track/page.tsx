@@ -1,140 +1,294 @@
 "use client";
 
 import {
-  ArrowRight,
+  AlertCircle,
+  Box,
   Calendar,
   CheckCircle2,
+  Clock,
   Copy,
+  FileText,
   Globe,
+  HelpCircle,
+  Home,
+  Info,
+  Loader2,
   MapPin,
   Package,
+  Phone,
   Plane,
   RefreshCw,
   Search,
+  Share2,
+  Shield,
   Truck,
   Weight,
   XCircle,
 } from "lucide-react";
 import React, { useState } from "react";
 
-// --- 1. MOCK DATA (Replace this with API call later) ---
-const MOCK_TRACKING_DATA = {
+interface TrackingEvent {
+  id: string;
+  date: string;
+  time: string;
+  status: string;
+  location: string;
+  description: string;
+  icon: React.ElementType;
+  isActive: boolean;
+  isCompleted: boolean;
+}
+
+interface TrackingData {
+  trackingNumber: string;
+  carrier: string;
+  status:
+    | "Pending"
+    | "Picked Up"
+    | "In Transit"
+    | "Out for Delivery"
+    | "Delivered"
+    | "Exception";
+  estimatedDelivery: string;
+  actualDelivery?: string;
+  origin: {
+    city: string;
+    country: string;
+    code: string;
+  };
+  destination: {
+    city: string;
+    country: string;
+    code: string;
+  };
+  shipmentType: string;
+  weight: string;
+  dimensions: string;
+  pieces: number;
+  serviceType: string;
+  paymentMethod: string;
+  codAmount?: string;
+  lastUpdate: string;
+  events: TrackingEvent[];
+}
+
+const MOCK_TRACKING_DATA: TrackingData = {
   trackingNumber: "CC-8849201-BD",
-  status: "In Transit", // Options: Delivered, In Transit, Pending, Exception
+  carrier: "Cross Cart Global",
+  status: "In Transit",
   estimatedDelivery: "Oct 24, 2023",
-  origin: "New York, USA (JFK)",
-  destination: "Dhaka, Bangladesh (DAC)",
-  service: "Express Air Freight",
+  origin: {
+    city: "New York",
+    country: "USA",
+    code: "JFK",
+  },
+  destination: {
+    city: "Dhaka",
+    country: "Bangladesh",
+    code: "DAC",
+  },
+  shipmentType: "Documents",
   weight: "4.5 kg",
-  pieces: "1",
-  history: [
+  dimensions: "30x20x15 cm",
+  pieces: 1,
+  serviceType: "Express Air Freight",
+  paymentMethod: "Prepaid",
+  lastUpdate: "Oct 22, 2023 14:30",
+  events: [
     {
-      date: "Oct 22, 2023 - 14:30",
+      id: "1",
+      date: "Oct 22, 2023",
+      time: "14:30",
       status: "Out for Delivery",
       location: "Dhaka Hub, Gulshan-1",
-      description: "Shipment is with the courier for final delivery.",
+      description: "Package is with the courier for final delivery",
       icon: Truck,
       isActive: true,
+      isCompleted: true,
     },
     {
-      date: "Oct 21, 2023 - 09:15",
-      status: "Arrived at Destination Country",
+      id: "2",
+      date: "Oct 21, 2023",
+      time: "09:15",
+      status: "Arrived at Destination",
       location: "Hazrat Shahjalal Int. Airport, DAC",
-      description: "Customs clearance processing started.",
+      description: "Customs clearance processing started",
       icon: Globe,
       isActive: false,
+      isCompleted: true,
     },
     {
-      date: "Oct 20, 2023 - 18:00",
-      status: "Departed Origin Facility",
+      id: "3",
+      date: "Oct 20, 2023",
+      time: "18:00",
+      status: "Departed Origin",
       location: "JFK Airport, New York",
-      description: "Flight EK-586 departed for Dhaka.",
+      description: "Flight EK-586 departed for Dhaka",
       icon: Plane,
       isActive: false,
+      isCompleted: true,
     },
     {
-      date: "Oct 19, 2023 - 11:20",
-      status: "Shipment Picked Up",
+      id: "4",
+      date: "Oct 19, 2023",
+      time: "11:20",
+      status: "Picked Up",
       location: "Manhattan, NY",
-      description: "Package collected from sender.",
+      description: "Package collected from sender",
       icon: Package,
       isActive: false,
+      isCompleted: true,
     },
     {
-      date: "Oct 18, 2023 - 16:45",
-      status: "Label Created",
+      id: "5",
+      date: "Oct 18, 2023",
+      time: "16:45",
+      status: "Shipment Created",
       location: "Cross Cart System",
-      description: "Shipping label generated and awaiting pickup.",
-      icon: CheckCircle2,
+      description: "Shipping label generated, awaiting pickup",
+      icon: FileText,
       isActive: false,
+      isCompleted: true,
     },
   ],
 };
 
-// --- 2. COMPONENTS ---
-
-// Helper for Status Color
-const getStatusColor = (status: string) => {
-  switch (status) {
-    case "Delivered":
-      return "bg-green-500/10 text-green-400 border-green-500/20";
-    case "In Transit":
-      return "bg-[#F5B400]/10 text-[#F5B400] border-[#F5B400]/20";
-    case "Exception":
-      return "bg-red-500/10 text-red-400 border-red-500/20";
-    default:
-      return "bg-white/5 text-white/60 border-white/10";
-  }
+const STATUS_CONFIG = {
+  Pending: {
+    color: "bg-gray-500/10 text-gray-400 border-gray-500/20",
+    icon: Clock,
+    progress: 0,
+  },
+  "Picked Up": {
+    color: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+    icon: Package,
+    progress: 25,
+  },
+  "In Transit": {
+    color: "bg-[#F5B400]/10 text-[#F5B400] border-[#F5B400]/20",
+    icon: Plane,
+    progress: 50,
+  },
+  "Out for Delivery": {
+    color: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+    icon: Truck,
+    progress: 75,
+  },
+  Delivered: {
+    color: "bg-green-500/10 text-green-400 border-green-500/20",
+    icon: CheckCircle2,
+    progress: 100,
+  },
+  Exception: {
+    color: "bg-red-500/10 text-red-400 border-red-500/20",
+    icon: AlertCircle,
+    progress: -1,
+  },
 };
 
 export default function TrackPage() {
-  const [trackingId, setTrackingId] = useState("CC-8849201");
-  const [data, setData] = useState<typeof MOCK_TRACKING_DATA | null>(null);
+  const [trackingId, setTrackingId] = useState("");
+  const [data, setData] = useState<TrackingData | null>(null);
   const [loading, setLoading] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
   const [error, setError] = useState("");
+  const [showNotFound, setShowNotFound] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!trackingId) return;
+    if (!trackingId.trim()) return;
 
     setLoading(true);
     setError("");
+    setShowNotFound(false);
+    setData(null);
+    setLoadingProgress(0);
+
+    // Simulate progress animation
+    const progressInterval = setInterval(() => {
+      setLoadingProgress((prev) => {
+        if (prev >= 90) {
+          clearInterval(progressInterval);
+          return 90;
+        }
+        return prev + Math.random() * 15;
+      });
+    }, 200);
 
     // Simulate API Call
+    await new Promise((resolve) => setTimeout(resolve, 2500));
+
+    clearInterval(progressInterval);
+    setLoadingProgress(100);
+
     setTimeout(() => {
-      // For demo purposes, we just return the mock data
-      // In production: fetch(`/api/track/${trackingId}`)
+      // For demo: accepts any ID with 6+ chars or specific demo ID
       if (
         trackingId.toUpperCase() === "CC-8849201-BD" ||
-        trackingId.length > 5
+        trackingId.trim().length >= 6
       ) {
         setData(MOCK_TRACKING_DATA);
+        setShowNotFound(false);
       } else {
-        setError("Tracking ID not found. Please check and try again.");
+        setError("Please enter a valid tracking number (min 6 characters)");
+        setShowNotFound(true);
         setData(null);
       }
       setLoading(false);
-    }, 1500);
+      setLoadingProgress(0);
+    }, 300);
+  };
+
+  const handleCopy = () => {
+    if (data) {
+      navigator.clipboard.writeText(data.trackingNumber);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const handleShare = () => {
+    if (data && navigator.share) {
+      navigator.share({
+        title: `Track ${data.trackingNumber}`,
+        text: `Track your shipment ${data.trackingNumber} from ${data.origin.city} to ${data.destination.city}`,
+        url: window.location.href,
+      });
+    }
+  };
+
+  const getStatusConfig = (status: string) => {
+    return (
+      STATUS_CONFIG[status as keyof typeof STATUS_CONFIG] ||
+      STATUS_CONFIG.Pending
+    );
   };
 
   return (
-    <div className="min-h-screen bg-[#0a1a0f] pt-12 pb-15 px-5">
+    <div className="min-h-screen bg-[#0a1a0f] pt-8 pb-16 px-5">
       <div className="max-w-5xl mx-auto">
-        {/* --- HEADER SECTION --- */}
-        <div className="text-center mb-10">
+        {/* HEADER */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F5B400]/10 border border-[#F5B400]/20 rounded-full mb-4">
+            <Package className="h-4 w-4 text-[#F5B400]" />
+            <span className="text-[#F5B400] text-sm font-medium">
+              Real-time Tracking
+            </span>
+          </div>
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             Track Your <span className="text-[#F5B400]">Shipment</span>
           </h1>
           <p className="text-white/50 max-w-2xl mx-auto">
-            Enter your Cross Cart Tracking ID to get real-time updates on your
-            parcel{"'"}s location and delivery status.
+            Enter your tracking number to get instant updates on your shipment
+            location and delivery status
           </p>
         </div>
 
-        {/* --- SEARCH BOX --- */}
-        <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-12">
+        {/* SEARCH BOX */}
+        <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-10">
           <div className="relative group">
-            <div className="absolute -inset-0.5 bg-linear-to-r from-[#F5B400] to-[#b8860b] rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-500" />
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#F5B400] via-[#E5A500] to-[#F5B400] rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-500" />
             <div className="relative flex bg-[#0a1a0f] rounded-xl p-2 border border-white/10">
               <div className="relative flex-1">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 h-5 w-5" />
@@ -143,175 +297,420 @@ export default function TrackPage() {
                   value={trackingId}
                   onChange={(e) => setTrackingId(e.target.value)}
                   placeholder="Enter Tracking ID (e.g. CC-8849201-BD)"
-                  className="w-full bg-[#081f10] border border-white/5 text-white placeholder-white/30 rounded-lg py-4 pl-12 pr-4 focus:outline-none focus:border-[#F5B400]/50 transition-all"
+                  className="w-full bg-[#081f10] border border-white/5 text-white placeholder-white/30 rounded-lg py-4 pl-12 pr-4 focus:outline-none focus:border-[#F5B400]/50 transition-all text-lg"
                 />
               </div>
               <button
                 type="submit"
-                disabled={loading}
-                className="h-13.5 px-8 bg-[#F5B400] hover:bg-[#F5B400]/90 text-[#081f10] font-bold tracking-wide uppercase rounded-lg transition-all flex items-center gap-2 disabled:opacity-70"
+                disabled={loading || !trackingId.trim()}
+                className="h-14 px-8 bg-gradient-to-r from-[#F5B400] to-[#E5A500] hover:from-[#E5A500] hover:to-[#D49400] text-[#081f10] font-bold rounded-lg transition-all flex items-center gap-2 disabled:opacity-50 shadow-lg shadow-[#F5B400]/20"
               >
                 {loading ? (
-                  <RefreshCw className="h-5 w-5 animate-spin" />
+                  <Loader2 className="h-5 w-5 animate-spin" />
                 ) : (
                   <>
-                    Track <ArrowRight className="h-4 w-4" />
+                    <Search className="h-5 w-5" />
+                    Track
                   </>
                 )}
               </button>
             </div>
           </div>
+
+          {/* Loading Progress Bar */}
+          {loading && (
+            <div className="mt-4 bg-white/5 rounded-full h-2 overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-[#F5B400] to-[#E5A500] transition-all duration-300 ease-out"
+                style={{ width: `${loadingProgress}%` }}
+              />
+            </div>
+          )}
+
+          {/* Loading Message */}
+          {loading && (
+            <div className="mt-4 flex items-center justify-center gap-3 text-white/60">
+              <Loader2 className="h-5 w-5 animate-spin text-[#F5B400]" />
+              <span className="text-sm">
+                Searching for shipment information...
+              </span>
+            </div>
+          )}
+
           {error && (
             <p className="mt-3 text-red-400 text-sm flex items-center gap-2 justify-center">
-              <XCircle className="h-4 w-4" /> {error}
+              <AlertCircle className="h-4 w-4" /> {error}
             </p>
           )}
         </form>
 
-        {/* --- TRACKING RESULTS --- */}
-        {data && (
-          <div className="space-y-6 animate-fade-in-up">
-            {/* 1. STATUS OVERVIEW CARD */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Main Status */}
-              <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-6 lg:p-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-32 bg-[#F5B400]/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
+        {/* NOT FOUND STATE */}
+        {showNotFound && !loading && (
+          <div className="animate-fade-in">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center max-w-2xl mx-auto">
+              <div className="w-20 h-20 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center mx-auto mb-6">
+                <XCircle className="h-10 w-10 text-red-400" />
+              </div>
+              <h2 className="text-2xl font-bold text-white mb-2">
+                Tracking Not Found
+              </h2>
+              <p className="text-white/50 mb-6">
+                We couldn{"'"}t find a shipment with this tracking number.
+                Please verify your tracking ID and try again.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                <div className="bg-white/5 rounded-xl p-4 text-left w-full max-w-md">
+                  <h4 className="text-white font-semibold text-sm mb-2 flex items-center gap-2">
+                    <HelpCircle className="h-4 w-4 text-[#F5B400]" />
+                    Need Help?
+                  </h4>
+                  <ul className="text-white/50 text-sm space-y-1">
+                    <li>• Check your email for the correct tracking number</li>
+                    <li>• Tracking numbers are 8-20 characters long</li>
+                    <li>• Try using the prefix CC- if you haven{"'"}t</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="flex items-center justify-center gap-4">
+                <button
+                  onClick={() => (window.location.href = "/contact")}
+                  className="px-6 py-3 bg-[#F5B400]/10 border border-[#F5B400]/30 text-[#F5B400] font-semibold rounded-lg hover:bg-[#F5B400]/20 transition-all flex items-center gap-2"
+                >
+                  <Phone className="h-4 w-4" />
+                  Contact Support
+                </button>
+                <button
+                  onClick={() => (window.location.href = "/")}
+                  className="px-6 py-3 bg-white/5 border border-white/10 text-white font-semibold rounded-lg hover:bg-white/10 transition-all flex items-center gap-2"
+                >
+                  <Home className="h-4 w-4" />
+                  Back to Home
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
-                <div className="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+        {/* TRACKING RESULTS */}
+        {data && !loading && (
+          <div className="space-y-6 animate-fade-in-up">
+            {/* Status Progress Bar */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider border ${getStatusConfig(data.status).color}`}
+                  >
+                    {data.status}
+                  </div>
+                  <span className="text-white/30 text-sm">
+                    Last updated: {data.lastUpdate}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handleCopy}
+                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-all"
+                    title="Copy Tracking ID"
+                  >
+                    {copied ? (
+                      <CheckCircle2 className="h-5 w-5 text-green-400" />
+                    ) : (
+                      <Copy className="h-5 w-5" />
+                    )}
+                  </button>
+                  <button
+                    onClick={handleShare}
+                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-all"
+                    title="Share"
+                  >
+                    <Share2 className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Progress Steps */}
+              <div className="relative">
+                <div className="absolute top-5 left-0 right-0 h-1 bg-white/10 rounded-full" />
+                <div
+                  className="absolute top-5 left-0 h-1 bg-gradient-to-r from-[#F5B400] to-[#E5A500] rounded-full transition-all duration-500"
+                  style={{ width: `${getStatusConfig(data.status).progress}%` }}
+                />
+                <div className="relative flex justify-between">
+                  {[
+                    "Created",
+                    "Picked Up",
+                    "In Transit",
+                    "Out for Delivery",
+                    "Delivered",
+                  ].map((step, index) => {
+                    const progress = (index + 1) * 20;
+                    const isActive =
+                      getStatusConfig(data.status).progress >= progress;
+                    const isCurrent =
+                      getStatusConfig(data.status).progress === progress;
+                    return (
+                      <div key={step} className="flex flex-col items-center">
+                        <div
+                          className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all ${
+                            isActive
+                              ? "bg-[#F5B400] border-[#F5B400] text-[#081f10]"
+                              : "bg-white/5 border-white/20 text-white/40"
+                          }`}
+                        >
+                          {isActive && !isCurrent ? (
+                            <CheckCircle2 className="h-5 w-5" />
+                          ) : (
+                            <span className="text-xs font-bold">
+                              {index + 1}
+                            </span>
+                          )}
+                        </div>
+                        <span
+                          className={`text-xs mt-2 ${isActive ? "text-white" : "text-white/40"}`}
+                        >
+                          {step}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Main Info Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Shipment Info */}
+              <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-12 w-12 rounded-xl bg-[#F5B400]/10 flex items-center justify-center">
+                    <Package className="h-6 w-6 text-[#F5B400]" />
+                  </div>
                   <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border ${getStatusColor(data.status)}`}
-                      >
-                        {data.status}
-                      </span>
-                      <span className="text-white/30 text-sm">
-                        ID: {data.trackingNumber}
-                      </span>
-                      <button
-                        onClick={() =>
-                          navigator.clipboard.writeText(data.trackingNumber)
-                        }
-                        className="text-white/30 hover:text-[#F5B400] transition-colors"
-                        title="Copy ID"
-                      >
-                        <Copy className="h-4 w-4" />
-                      </button>
-                    </div>
-                    <h2 className="text-2xl font-bold text-white">
-                      {data.destination}
-                    </h2>
-                    <p className="text-white/50 flex items-center gap-2 mt-1">
-                      <MapPin className="h-4 w-4" /> From: {data.origin}
+                    <h3 className="text-white font-bold text-lg">
+                      Shipment Details
+                    </h3>
+                    <p className="text-white/50 text-sm">
+                      {data.trackingNumber}
                     </p>
                   </div>
+                </div>
 
-                  <div className="bg-[#F5B400]/10 border border-[#F5B400]/20 rounded-xl p-4 text-center min-w-40">
-                    <p className="text-[#F5B400] text-xs font-bold uppercase tracking-widest mb-1">
-                      Est. Delivery
+                {/* Route Display */}
+                <div className="flex items-center justify-between bg-[#081f10] rounded-xl p-4 mb-6">
+                  <div className="text-center">
+                    <p className="text-white/40 text-xs uppercase tracking-wider mb-1">
+                      From
                     </p>
-                    <div className="flex items-center justify-center gap-2 text-white font-mono font-bold text-lg">
-                      <Calendar className="h-5 w-5 text-[#F5B400]" />
-                      {data.estimatedDelivery}
+                    <p className="text-white font-bold">{data.origin.city}</p>
+                    <p className="text-white/50 text-sm">
+                      {data.origin.country}
+                    </p>
+                    <p className="text-[#F5B400] text-sm font-mono mt-1">
+                      {data.origin.code}
+                    </p>
+                  </div>
+                  <div className="flex-1 px-4">
+                    <div className="flex items-center">
+                      <div className="h-3 w-3 rounded-full bg-[#F5B400]" />
+                      <div className="flex-1 h-0.5 bg-gradient-to-r from-[#F5B400] to-[#E5A500]" />
+                      <Plane className="h-5 w-5 text-[#F5B400]" />
+                      <div className="flex-1 h-0.5 bg-gradient-to-r from-[#E5A500] to-white/20" />
+                      <div className="h-3 w-3 rounded-full bg-white/30" />
                     </div>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-white/40 text-xs uppercase tracking-wider mb-1">
+                      To
+                    </p>
+                    <p className="text-white font-bold">
+                      {data.destination.city}
+                    </p>
+                    <p className="text-white/50 text-sm">
+                      {data.destination.country}
+                    </p>
+                    <p className="text-white/40 text-sm font-mono mt-1">
+                      {data.destination.code}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Details Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="bg-white/5 rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Box className="h-4 w-4 text-white/40" />
+                      <span className="text-white/40 text-xs uppercase tracking-wider">
+                        Shipment Type
+                      </span>
+                    </div>
+                    <p className="text-white font-semibold">
+                      {data.shipmentType}
+                    </p>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Weight className="h-4 w-4 text-white/40" />
+                      <span className="text-white/40 text-xs uppercase tracking-wider">
+                        Weight
+                      </span>
+                    </div>
+                    <p className="text-white font-semibold">{data.weight}</p>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Globe className="h-4 w-4 text-white/40" />
+                      <span className="text-white/40 text-xs uppercase tracking-wider">
+                        Pieces
+                      </span>
+                    </div>
+                    <p className="text-white font-semibold">
+                      {data.pieces} Piece(s)
+                    </p>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Shield className="h-4 w-4 text-white/40" />
+                      <span className="text-white/40 text-xs uppercase tracking-wider">
+                        Service
+                      </span>
+                    </div>
+                    <p className="text-white font-semibold text-sm">
+                      {data.serviceType}
+                    </p>
                   </div>
                 </div>
               </div>
 
-              {/* Mini Stats */}
-              <div className="grid grid-rows-3 gap-4">
-                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
-                    <Package className="h-5 w-5" />
+              {/* Delivery Info */}
+              <div className="space-y-6">
+                {/* Estimated Delivery */}
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-12 w-12 rounded-xl bg-[#F5B400]/10 flex items-center justify-center">
+                      <Calendar className="h-6 w-6 text-[#F5B400]" />
+                    </div>
+                    <div>
+                      <p className="text-white/40 text-xs uppercase tracking-wider">
+                        Estimated Delivery
+                      </p>
+                      <p className="text-white font-bold text-lg">
+                        {data.estimatedDelivery}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-white/40 text-xs uppercase tracking-wider">
-                      Service
+                  <div className="bg-[#081f10] rounded-xl p-4">
+                    <div className="flex items-center gap-2 text-white/50 text-sm mb-2">
+                      <Clock className="h-4 w-4" />
+                      <span>Carrier</span>
+                    </div>
+                    <p className="text-white font-semibold">{data.carrier}</p>
+                    <p className="text-white/50 text-sm mt-1">
+                      {data.paymentMethod}
                     </p>
-                    <p className="text-white font-semibold">{data.service}</p>
                   </div>
                 </div>
-                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
-                    <Weight className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-white/40 text-xs uppercase tracking-wider">
-                      Weight
-                    </p>
-                    <p className="text-white font-semibold">{data.weight}</p>
-                  </div>
-                </div>
-                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-                    <Globe className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-white/40 text-xs uppercase tracking-wider">
-                      Pieces
-                    </p>
-                    <p className="text-white font-semibold">{data.pieces}</p>
+
+                {/* Quick Actions */}
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                  <h4 className="text-white font-semibold mb-4">Need Help?</h4>
+                  <div className="space-y-3">
+                    <button className="w-full flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all">
+                      <Phone className="h-5 w-5 text-[#F5B400]" />
+                      <span className="text-sm">Call Support</span>
+                    </button>
+                    <button className="w-full flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all">
+                      <Info className="h-5 w-5 text-[#F5B400]" />
+                      <span className="text-sm">Get Help</span>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* 2. TRACKING TIMELINE */}
+            {/* Timeline */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 lg:p-8">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                <RefreshCw className="h-5 w-5 text-[#F5B400]" /> Shipment
-                Journey
-              </h3>
+              <div className="flex items-center justify-between mb-8">
+                <h3 className="text-xl font-bold text-white flex items-center gap-3">
+                  <RefreshCw className="h-5 w-5 text-[#F5B400]" />
+                  Shipment History
+                </h3>
+                <span className="text-white/40 text-sm">
+                  {data.events.length} Events
+                </span>
+              </div>
 
-              <div className="relative border-l-2 border-white/10 ml-3 space-y-8">
-                {data.history.map((event, index) => {
+              <div className="relative">
+                {data.events.map((event, index) => {
                   const Icon = event.icon;
-                  const isLast = index === data.history.length - 1;
+                  const isLast = index === data.events.length - 1;
 
                   return (
-                    <div key={index} className="relative pl-8">
-                      {/* Timeline Dot */}
-                      <div
-                        className={`absolute -left-2.25 top-1 h-5 w-5 rounded-full border-2 flex items-center justify-center transition-colors duration-300 ${event.isActive ? "border-[#F5B400] bg-[#F5B400]" : "border-[#0a1a0f] bg-white/20"}`}
-                      >
-                        {event.isActive && (
-                          <div className="h-1.5 w-1.5 rounded-full bg-[#0a1a0f]" />
-                        )}
-                      </div>
+                    <div
+                      key={event.id}
+                      className={`relative ${isLast ? "" : "pb-10"}`}
+                    >
+                      {/* Connection Line */}
+                      {!isLast && (
+                        <div className="absolute left-5 top-12 bottom-0 w-0.5 bg-gradient-to-b from-[#F5B400]/50 to-white/10" />
+                      )}
 
-                      {/* Content */}
-                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-4 group">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1">
-                            <Icon
-                              className={`h-4 w-4 ${event.isActive ? "text-[#F5B400]" : "text-white/30"}`}
-                            />
-                            <h4
-                              className={`font-semibold ${event.isActive ? "text-white" : "text-white/50"}`}
-                            >
-                              {event.status}
-                            </h4>
+                      <div className="flex gap-4">
+                        {/* Icon */}
+                        <div
+                          className={`relative z-10 h-10 w-10 rounded-full flex items-center justify-center shrink-0 ${
+                            event.isActive
+                              ? "bg-[#F5B400] text-[#081f10] shadow-lg shadow-[#F5B400]/30"
+                              : event.isCompleted
+                                ? "bg-[#F5B400]/20 text-[#F5B400]"
+                                : "bg-white/10 text-white/30"
+                          }`}
+                        >
+                          <Icon className="h-5 w-5" />
+                          {event.isActive && (
+                            <div className="absolute inset-0 rounded-full animate-ping bg-[#F5B400]/30" />
+                          )}
+                        </div>
+
+                        {/* Content */}
+                        <div className="flex-1 pt-1">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+                            <div>
+                              <h4
+                                className={`font-semibold ${
+                                  event.isActive
+                                    ? "text-white"
+                                    : event.isCompleted
+                                      ? "text-white/80"
+                                      : "text-white/40"
+                                }`}
+                              >
+                                {event.status}
+                              </h4>
+                              <p className="text-white/50 text-sm mt-1">
+                                {event.description}
+                              </p>
+                            </div>
+                            <div className="text-right shrink-0">
+                              <p
+                                className={`text-sm font-medium ${event.isActive ? "text-[#F5B400]" : "text-white/50"}`}
+                              >
+                                {event.date}
+                              </p>
+                              <p className="text-white/30 text-xs">
+                                {event.time}
+                              </p>
+                            </div>
                           </div>
-                          <p className="text-sm text-white/40 group-hover:text-white/60 transition-colors">
-                            {event.description}
-                          </p>
-                        </div>
-                        <div className="text-right min-w-35">
-                          <p className="text-sm text-[#F5B400] font-medium">
-                            {event.date.split(" - ")[0]}
-                          </p>
-                          <p className="text-xs text-white/30">
-                            {event.date.split(" - ")[1]}
-                          </p>
-                        </div>
-                      </div>
 
-                      {/* Location Tag */}
-                      <div className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/5">
-                        <MapPin className="h-3 w-3 text-white/30" />
-                        <span className="text-xs text-white/50">
-                          {event.location}
-                        </span>
+                          {/* Location */}
+                          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mt-2">
+                            <MapPin className="h-3 w-3 text-white/40" />
+                            <span className="text-white/50 text-xs">
+                              {event.location}
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   );
@@ -319,19 +718,67 @@ export default function TrackPage() {
               </div>
             </div>
 
-            {/* 3. MAP PLACEHOLDER (Visual Filler) */}
-            <div className="h-64 w-full rounded-2xl overflow-hidden border border-white/10 relative group">
-              {/* You would integrate Google Maps or Mapbox here */}
-              <div className="absolute inset-0 bg-[#081f10] flex items-center justify-center flex-col gap-2">
-                <div className="h-12 w-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center animate-pulse">
-                  <Globe className="h-6 w-6 text-[#F5B400]" />
+            {/* Tips Section */}
+            <div className="bg-gradient-to-r from-[#F5B400]/10 to-transparent border border-[#F5B400]/20 rounded-2xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="h-10 w-10 rounded-lg bg-[#F5B400]/20 flex items-center justify-center shrink-0">
+                  <Info className="h-5 w-5 text-[#F5B400]" />
                 </div>
-                <p className="text-white/30 text-sm">
-                  Live Map View Unavailable
-                </p>
+                <div>
+                  <h4 className="text-white font-semibold mb-2">
+                    Tracking Tips
+                  </h4>
+                  <ul className="text-white/50 text-sm space-y-1">
+                    <li>
+                      • Updates may take 24-48 hours to reflect after pickup
+                    </li>
+                    <li>
+                      • Contact support if no updates for more than 3 days
+                    </li>
+                    <li>
+                      • Download our app for push notifications on your shipment
+                    </li>
+                  </ul>
+                </div>
               </div>
-              {/* Grid pattern overlay */}
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[20px_20px]"></div>
+            </div>
+          </div>
+        )}
+
+        {/* Initial State - When no search */}
+        {!data && !loading && !showNotFound && (
+          <div className="text-center py-12">
+            <div className="max-w-md mx-auto">
+              <div className="w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-6">
+                <Search className="h-12 w-12 text-white/20" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">
+                Enter Tracking Number
+              </h3>
+              <p className="text-white/50 text-sm mb-8">
+                Type your tracking number above to see real-time updates on your
+                shipment
+              </p>
+
+              {/* Sample IDs */}
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4">
+                <p className="text-white/40 text-xs uppercase tracking-wider mb-3">
+                  Try these sample tracking IDs:
+                </p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {["CC-8849201-BD", "CC-1234567-BD", "CC-9876543-IN"].map(
+                    (id) => (
+                      <button
+                        key={id}
+                        onClick={() => setTrackingId(id)}
+                        className="px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-white/60 hover:text-white text-sm font-mono transition-all"
+                      >
+                        {id}
+                      </button>
+                    ),
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         )}
