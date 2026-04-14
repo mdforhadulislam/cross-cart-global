@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Keania_One } from "next/font/google";
 import Script from "next/script";
+import { Suspense } from "react";
 import "./globals.css";
 
 /* ======================================================
@@ -448,7 +449,9 @@ export default function RootLayout({
         />
 
         <TooltipProvider>
-          <FacebookPixel />
+          <Suspense fallback={null}>
+            <FacebookPixel />
+          </Suspense>
           <main className="min-h-screen">
             <NavBar />
             <div className="h-16.25"></div>

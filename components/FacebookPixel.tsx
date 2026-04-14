@@ -1,16 +1,15 @@
 "use client";
 
-import { pageview } from "@/lib/fpixel";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { pageview } from "@/lib/fpixel";
 
 export default function FacebookPixel() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     pageview();
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return null;
 }
