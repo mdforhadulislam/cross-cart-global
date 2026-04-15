@@ -4,10 +4,54 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "About Us - Cross Cart Global | International Courier & Logistics",
-  description: "Learn about Cross Cart Global - your trusted partner for international courier, logistics, and shipping solutions. 15+ years experience, 220+ countries served.",
-  keywords: ["Cross Cart Global about", "courier company Bangladesh", "international logistics company", "shipping company Dhaka"],
-}
+  title: "About Us | Cross Cart Global",
+  description: "Learn about Cross Cart Global - your trusted partner for international courier, logistics, and shipping solutions. 15+ years experience, 220+ countries served, 50K+ packages delivered with 99% customer satisfaction.",
+  keywords: [
+    "Cross Cart Global about",
+    "courier company Bangladesh",
+    "international logistics company Bangladesh",
+    "shipping company Dhaka",
+    "about Cross Cart",
+    "logistics company Bangladesh",
+    "courier service about us",
+    "Cross Cart history",
+    "Bangladesh courier company",
+    "global logistics partner Bangladesh",
+    "Cross Cart mission vision",
+    "international shipping company Bangladesh",
+    "trusted courier Bangladesh",
+    "logistics services Bangladesh",
+  ],
+  openGraph: {
+    title: "About Cross Cart Global | International Courier & Logistics",
+    description: "Learn about Cross Cart Global - your trusted partner for international courier and logistics solutions. 15+ years experience, 220+ countries served.",
+    url: "https://crosscartbd.com/about",
+    type: "website",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Cross Cart Global About",
+      },
+      {
+        url: "/cover-1.png",
+        width: 1200,
+        height: 630,
+        alt: "Cross Cart Global - Global Logistics Partner",
+      },
+    ],
+  },
+  twitter: {
+    title: "About Cross Cart Global",
+    description: "Your trusted partner for international courier and logistics solutions.",
+    images: ["/cover-1.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 const STATS = [
   { number: "15+", label: "Years Experience" },

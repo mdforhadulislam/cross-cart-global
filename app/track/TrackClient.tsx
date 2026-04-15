@@ -288,7 +288,7 @@ export default function TrackClient() {
         {/* SEARCH BOX */}
         <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-10">
           <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#F5B400] via-[#E5A500] to-[#F5B400] rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-500" />
+            <div className="absolute -inset-0.5 bg-linear-to-r from-[#F5B400] via-[#E5A500] to-[#F5B400] rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-500" />
             <div className="relative flex bg-white rounded-xl p-2 border border-gray-200">
               <div className="relative flex-1">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-900/40 h-5 w-5" />
@@ -303,7 +303,7 @@ export default function TrackClient() {
               <button
                 type="submit"
                 disabled={loading || !trackingId.trim()}
-                className="h-14 px-8 bg-gradient-to-r from-[#F5B400] to-[#E5A500] hover:from-[#E5A500] hover:to-[#D49400] text-[#0a1a0f] font-bold rounded-lg transition-all flex items-center gap-2 disabled:opacity-50 shadow-lg shadow-[#F5B400]/20"
+                className="h-14 px-8 bg-linear-to-r from-[#F5B400] to-[#E5A500] hover:from-[#E5A500] hover:to-[#D49400] text-[#0a1a0f] font-bold rounded-lg transition-all flex items-center gap-2 disabled:opacity-50 shadow-lg shadow-[#F5B400]/20"
               >
                 {loading ? (
                   <Loader2 className="h-5 w-5 animate-spin" />
@@ -321,7 +321,7 @@ export default function TrackClient() {
           {loading && (
             <div className="mt-4 bg-gray-100 rounded-full h-2 overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-[#F5B400] to-[#E5A500] transition-all duration-300 ease-out"
+                className="h-full bg-linear-to-r from-[#F5B400] to-[#E5A500] transition-all duration-300 ease-out"
                 style={{ width: `${loadingProgress}%` }}
               />
             </div>
@@ -433,7 +433,7 @@ export default function TrackClient() {
               <div className="relative">
                 <div className="absolute top-5 left-0 right-0 h-1 bg-white/10 rounded-full" />
                 <div
-                  className="absolute top-5 left-0 h-1 bg-gradient-to-r from-[#F5B400] to-[#E5A500] rounded-full transition-all duration-500"
+                  className="absolute top-5 left-0 h-1 bg-linear-to-r from-[#F5B400] to-[#E5A500] rounded-full transition-all duration-500"
                   style={{ width: `${getStatusConfig(data.status).progress}%` }}
                 />
                 <div className="relative flex justify-between">
@@ -513,9 +513,9 @@ export default function TrackClient() {
                   <div className="flex-1 px-4">
                     <div className="flex items-center">
                       <div className="h-3 w-3 rounded-full bg-[#F5B400]" />
-                      <div className="flex-1 h-0.5 bg-gradient-to-r from-[#F5B400] to-[#E5A500]" />
+                      <div className="flex-1 h-0.5 bg-linear-to-r from-[#F5B400] to-[#E5A500]" />
                       <Plane className="h-5 w-5 text-[#F5B400]" />
-                      <div className="flex-1 h-0.5 bg-gradient-to-r from-[#E5A500] to-white/20" />
+                      <div className="flex-1 h-0.5 bg-linear-to-r from-[#E5A500] to-white/20" />
                       <div className="h-3 w-3 rounded-full bg-white/30" />
                     </div>
                   </div>
@@ -652,7 +652,7 @@ export default function TrackClient() {
                     >
                       {/* Connection Line */}
                       {!isLast && (
-                        <div className="absolute left-5 top-12 bottom-0 w-0.5 bg-gradient-to-b from-[#F5B400]/50 to-white/10" />
+                        <div className="absolute left-5 top-12 bottom-0 w-0.5 bg-linear-to-b from-[#F5B400]/50 to-white/10" />
                       )}
 
                       <div className="flex gap-4">
@@ -719,7 +719,7 @@ export default function TrackClient() {
             </div>
 
             {/* Tips Section */}
-            <div className="bg-gradient-to-r from-[#F5B400]/10 to-transparent border border-[#F5B400]/20 rounded-2xl p-6">
+            <div className="bg-linear-to-r from-[#F5B400]/10 to-transparent border border-[#F5B400]/20 rounded-2xl p-6">
               <div className="flex items-start gap-4">
                 <div className="h-10 w-10 rounded-lg bg-[#F5B400]/20 flex items-center justify-center shrink-0">
                   <Info className="h-5 w-5 text-[#F5B400]" />
