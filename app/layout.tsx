@@ -459,6 +459,139 @@ const websiteSchema = {
   },
 };
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "CourierService",
+  "@id": "https://crosscartbd.com/#localbusiness",
+
+  name: "Cross Cart Global International Express Courier",
+  alternateName: "Cross Cart Global",
+  url: "https://crosscartbd.com",
+  logo: "https://crosscartbd.com/logo.png",
+  image: [
+    "https://crosscartbd.com/logo.png",
+    "https://crosscartbd.com/cover-1.png",
+    "https://crosscartbd.com/cover-2.png"
+  ],
+
+  description:
+    "Cross Cart Global is a leading international courier and logistics company based in Dhaka, Bangladesh. We provide fast, secure, and cost-effective worldwide shipping solutions including air freight, sea freight, parcel delivery, and eCommerce logistics.",
+
+  telephone: "+8801811107751",
+  email: "cross.cart.bd@gmail.com",
+
+  priceRange: "$$",
+
+  address: {
+    "@type": "PostalAddress",
+    streetAddress:
+      "Warehouse No.1, Behind Sena Kalyan Sangstha (SKS Tower), Mohakhali DOHS",
+    addressLocality: "Dhaka",
+    postalCode: "1206",
+    addressCountry: "BD"
+  },
+
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 23.7806,
+    longitude: 90.4070
+  },
+
+  areaServed: [
+    { "@type": "Country", name: "Bangladesh" },
+    { "@type": "Country", name: "United Kingdom" },
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "Canada" },
+    { "@type": "Country", name: "United Arab Emirates" },
+    { "@type": "Country", name: "Malaysia" }
+  ],
+
+  serviceType: [
+    "International Courier Service",
+    "Air Freight",
+    "Sea Freight",
+    "Parcel Delivery",
+    "eCommerce Logistics",
+    "Freight Forwarding",
+    "Customs Clearance",
+    "Door to Door Delivery"
+  ],
+
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Saturday",
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday"
+      ],
+      opens: "09:00",
+      closes: "22:00"
+    }
+  ],
+
+  sameAs: [
+    "https://www.facebook.com/cross.cart.global.bd",
+    "https://www.instagram.com/crosscart.global",
+    "https://www.linkedin.com/company/cross-cart-global",
+    "https://twitter.com/crosscartglobal",
+    "https://www.youtube.com/@crosscartglobal",
+    "https://www.tiktok.com/@crosscartglobal"
+  ],
+
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+8801811107751",
+      contactType: "customer service",
+      areaServed: "BD",
+      availableLanguage: ["English", "Bengali"]
+    }
+  ],
+
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Courier & Logistics Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "International Parcel Delivery"
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Air Freight Shipping"
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Sea Freight Shipping"
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "eCommerce Fulfillment"
+        }
+      }
+    ]
+  },
+
+  parentOrganization: {
+    "@id": "https://crosscartbd.com/#organization"
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -534,6 +667,14 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
+
+        <Script
+  id="local-business-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(localBusinessSchema),
+  }}
+/>
 
         <TooltipProvider>
           <Suspense fallback={null}>
