@@ -1,6 +1,5 @@
 import FacebookPixel from "@/components/FacebookPixel";
-import FooterBar from "@/components/layout/FooterBar";
-import NavBar from "@/components/layout/NavBar";
+import LayoutWrapper from "@/components/layout/LayoutWrapper";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
@@ -516,6 +515,8 @@ export default function RootLayout({
             gtag('config', 'G-MBRH1VJHZP');
           `}
         </Script>
+
+        <meta name="msvalidate.01" content="5E9033E01DB54C7DBC289D821074568A" />
       </head>
 
       <body
@@ -539,10 +540,9 @@ export default function RootLayout({
             <FacebookPixel />
           </Suspense>
           <main className="min-h-screen">
-            <NavBar />
-            <div className="h-16.25"></div>
-            {children}
-            <FooterBar />
+            <LayoutWrapper>
+              {children}
+            </LayoutWrapper>
             <Analytics />
           </main>
         </TooltipProvider>
