@@ -650,6 +650,7 @@ export default function RootLayout({
         </Script>
 
         <meta name="msvalidate.01" content="5E9033E01DB54C7DBC289D821074568A" />
+        <meta name="p:domain_verify" content="a234a5efcceaadfafe7edbb6a6d238ce"/>
       </head>
 
       <body
