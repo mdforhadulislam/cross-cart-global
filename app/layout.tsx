@@ -651,7 +651,7 @@ export default function RootLayout({
 
         <meta name="msvalidate.01" content="5E9033E01DB54C7DBC289D821074568A" />
         <meta name="p:domain_verify" content="a234a5efcceaadfafe7edbb6a6d238ce"/>
-      <meta name="google-adsense-account" content="ca-pub-3062190244275306">
+      <meta name="google-adsense-account" content="ca-pub-3062190244275306"/>
       </head>
 
       <body
